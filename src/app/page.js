@@ -66,7 +66,7 @@ const Home = () => {
         Experience Content
       </section>
       <section className="h-[100vh] bg-red-200  font-semibold font-serif" id="contacts">
-        Contacts Content
+        Contacts Content 
       </section>
     </div>
   );
