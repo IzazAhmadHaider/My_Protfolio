@@ -19,14 +19,14 @@ function Home1() {
 
   return (
     <>
-      <div className="flex items-center justify-between bg-yellow-300 ">
+      <div className="flex items-center justify-between bg-gradient-to-r from-yellow-400 to-orange-400 ">
         <div className=" pl-28 font">
           <p className="text-4xl text-[#219ebc] ">Hello!</p>
           <h6 className="text-3xl text-[#219ebc]">I'm Izaz Ahmad</h6>
           <h6 className="typewriter text-[#219ebc]">{text} </h6>
         </div>
         <div className="min-h-screen flex flex-col items-end pr-48">
-          <div className="flex-grow bg-yellow-300 flex items-center justify-center">
+          <div className="flex-grow bg-transparent flex items-center justify-center">
             <div
               className="relative  w-72 h-72 bg-yellow-200 border-2 border-[#219ebc] custom-spin-animation rounded-full"
               style={{
