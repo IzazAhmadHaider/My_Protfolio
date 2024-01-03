@@ -1,6 +1,6 @@
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
-function Home1({ scrollToSection } ) {
+function Home1({ scrollToSection }) {
   const [text, setText] = useState("");
   const fullText = "rontend Web Developer | ReactJs";
   useEffect(() => {
@@ -29,11 +29,19 @@ function Home1({ scrollToSection } ) {
           </h6>
 
           <div className="flex justify-start items-center space-x-4 w-[21rem] mt-5">
-            <button onClick={() => scrollToSection('contacts')} className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-2 rounded-xl flex  ">
+            <button
+              onClick={() => scrollToSection("contacts")}
+              className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-2 rounded-xl flex  "
+            >
               <IconPhoneCall />
               &nbsp;Contact Me
             </button>
-            <a href="IZAZAHMAD.PDF" download>
+            <a
+              href="https://drive.google.com/uc?export=download&id=11pov35U5WhmYLds9tdCriu06O6bHG62V
+"
+              download="https://drive.google.com/uc?export=download&id=11pov35U5WhmYLds9tdCriu06O6bHG62V
+"
+            >
               <button className="bg-orange-500 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-xl flex items-center">
                 <IconDownload className="mr-2" />
                 Download CV
