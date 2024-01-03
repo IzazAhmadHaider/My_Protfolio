@@ -42,13 +42,22 @@ const Home = () => {
   const redirectToLinkdin = () => {
     window.location.href = 'https://www.linkedin.com/in/izaz-ahmad-035a721a3/';
   };
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <div className="h-auto">
       <div className="bg-transparent flex items-center justify-between w-full fixed  ">
         <div className="flex items-center pt-3 pl-3">
           <div
-            className="relative  w-7 h-7 bg-yellow-200 border-2 border-[#219ebc] custom-spin-animation rounded-full"
+            className="relative  w-7 h-7 bg-orange-400  border-2 border-[#219ebc] custom-spin-animation rounded-full"
             style={{
               clipPath: "circle(90% at 0% 20%)",
             }}
@@ -143,7 +152,7 @@ const Home = () => {
         className="h-[100vh] bg-yellow-300  font-semibold font-serif"
         id="home"
       >
-        <Home1 />
+        <Home1  scrollToSection={scrollToSection}/>
       </section>
       <section
         className="h-[100vh] bg-violet-200  font-semibold font-serif"
