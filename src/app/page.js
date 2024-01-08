@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Home1 from "./components/home";
+import Skills1 from "./components/skills";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -54,7 +55,7 @@ const Home = () => {
 
   return (
     <div className="h-auto">
-      <div className="bg-transparent flex items-center justify-between w-full fixed  ">
+      <div className="bg-transparent flex items-center justify-between w-[100%] fixed  ">
         <div className="flex items-center pt-3 pl-3">
           <div
             className="relative  w-7 h-7 bg-orange-400  border-2 border-[#219ebc] custom-spin-animation rounded-full"
@@ -65,7 +66,7 @@ const Home = () => {
           <img className="absolute w-6 pl-[3px] " src="mypic.png" alt="" />
           <p className="text-[#219ebc] text-lg font">&nbsp;&nbsp;Izaz Ahmad</p>
         </div>
-        <div className="flex items-end pr-3 space-x-2">
+        <div className="flex items-end pr-3 space-x-2 max-lg:hidden">
           <IconBrandInstagram
           onClick={redirectToInstagram}
             color="#219ebc"
@@ -95,11 +96,11 @@ const Home = () => {
       <div
         className={`${
           showNavbar
-            ? "bg-transparent w-fit h-[60px] left-[35%] right-[35%] pt-[5px] pb-[20px] mt-4 rounded-full fixed text-[#219ebc]"
+            ? "bg-transparent w-fit h-[60px] left-[35%] right-[35%] pt-[5px] pb-[20px] mt-2 rounded-full fixed text-[#219ebc] z-40"
             : "hidden"
         }`}
       >
-        <nav className="flex justify-center items-center space-x-3 font-serif font-semibold mx-3 z-0">
+        <nav className="flex justify-center items-center space-x-3 font-serif font-semibold mx-3 bg-white p-3 rounded-full bg-opacity-10 ">
           <ScrollLink
             to="home"
             
@@ -149,31 +150,31 @@ const Home = () => {
       </div>
 
       <section
-        className="h-[100vh] bg-yellow-300  font-semibold font-serif"
+        className="h-[100vh] z-30 "
         id="home"
       >
         <Home1  scrollToSection={scrollToSection}/>
       </section>
       <section
-        className="h-[100vh] bg-violet-200  font-semibold font-serif"
+        className="h-[100vh]"
         id="skills"
       >
-        Skills Content
+        <Skills1 />
       </section>
       <section
-        className="h-[100vh] bg-gray-300  font-semibold font-serif"
+        className="h-[100vh]"
         id="projects"
       >
         Projects Content
       </section>
       <section
-        className="h-[100vh] bg-yellow-100  font-semibold font-serif"
+        className="h-[100vh]"
         id="experience"
       >
         Experience Content
       </section>
       <section
-        className="h-[100vh] bg-red-200  font-semibold font-serif"
+        className="h-[100vh]"
         id="contacts"
       >
         Contacts Content
