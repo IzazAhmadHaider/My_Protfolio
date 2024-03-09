@@ -1,9 +1,9 @@
 "use client";
-// Navbar.jsx
 import React, { useEffect, useState } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Home1 from "./components/home";
 import Skills1 from "./components/skills";
+import Project from "./components/project";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -165,7 +165,7 @@ const Home = () => {
         className="h-[100vh]"
         id="projects"
       >
-        Projects Content
+        <Project/>
       </section>
       <section
         className="h-[100vh]"
