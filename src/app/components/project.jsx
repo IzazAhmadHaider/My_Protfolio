@@ -13,9 +13,9 @@ const MyComponent = () => {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
         >
-          <button onClick={() => setIsVisible(false)}>Hide</button>
+          <button onClick={() => setIsVisible(false)}>Hide</button> 
           <h1>Hello, Framer Motion!</h1>
-        </motion.div>
+        </motion.div> 
       )}
     </AnimatePresence>
   );
