@@ -10,6 +10,7 @@ import {
   IconBrandLinkedin,
   IconBrandX,
 } from "@tabler/icons-react";
+import Experience from "./components/Experience";
 
 const Home = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -171,7 +172,7 @@ const Home = () => {
         className="h-[100vh]"
         id="experience"
       >
-        Experience Content
+        <Experience/>
       </section>
       <section
         className="h-[100vh]"

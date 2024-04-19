@@ -1,5 +1,7 @@
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+
 function Home1({ scrollToSection }) {
   const [text, setText] = useState("");
   const fullText = "rontend Web Developer | ReactJs";
@@ -49,6 +51,13 @@ function Home1({ scrollToSection }) {
             </a>
           </div>
         </div>
+        <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 4 }}
+        >
         <div className="min-h-screen flex flex-col items-end pr-48">
           <div className="flex-grow bg-transparent flex items-center justify-center">
             <div
@@ -60,6 +69,8 @@ function Home1({ scrollToSection }) {
             <img className="absolute w-64" src="mypic.png" alt="" />
           </div>
         </div>
+        </motion.div> 
+        </AnimatePresence>
       </div>
     </>
   );

@@ -50,15 +50,15 @@ const Home = () => {
         </ScrollLink>
       </nav>
       // In home/page.jsx
-      <section className="h-[100vh]" id="home">Home Content</section>
+      <section className="" id="home">Home Content</section>
       // In skills/page.jsx
-      <section className="h-[100vh]" id="skills">Skills Content</section>
+      <section className="" id="skills">Skills Content</section>
       // In projects/page.jsx
-      <section className="h-[100vh]" id="projects">Projects Content</section>
+      <section className="" id="projects">Projects Content</section>
       // In experience/page.jsx
-      <section className="h-[100vh]" id="experience">Experience Content</section>
+      <section className="" id="experience">Experience Content</section>
       // In contacts/page.jsx
-      <section className="h-[100vh]" id="contacts">Contacts Content</section>
+      <section className="" id="contacts">Contacts Content</section>
     </div>
     </div>
     </>
