@@ -151,25 +151,25 @@ const Home = () => {
       </div>
 
       <section
-        className="h-[100vh] z-30 "
+        className=" z-30 "
         id="home"
       >
         <Home1  scrollToSection={scrollToSection}/>
       </section>
       <section
-        className="h-[100vh]"
+        className=""
         id="skills"
       >
         <Skills1 />
       </section>
       <section
-        className="h-[100vh]"
+        className=""
         id="projects"
       >
         <Project/>
       </section>
       <section
-        className="h-[100vh]"
+        className=""
         id="experience"
       >
         <Experience/>

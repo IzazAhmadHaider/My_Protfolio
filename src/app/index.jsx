@@ -49,16 +49,7 @@ const Home = () => {
           Contacts
         </ScrollLink>
       </nav>
-      // In home/page.jsx
-      <section className="" id="home">Home Content</section>
-      // In skills/page.jsx
-      <section className="" id="skills">Skills Content</section>
-      // In projects/page.jsx
-      <section className="" id="projects">Projects Content</section>
-      // In experience/page.jsx
-      <section className="" id="experience">Experience Content</section>
-      // In contacts/page.jsx
-      <section className="" id="contacts">Contacts Content</section>
+   
     </div>
     </div>
     </>
