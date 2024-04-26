@@ -2,15 +2,15 @@ import React from 'react';
 
 function Contact() {
   return (
-    <div className='bg-gradient-to-r from-yellow-400 to-orange-400 min-h-screen  flex justify-center items-center'>
+    <div className='bg-gradient-to-r from-yellow-400 to-orange-400 py-6  flex justify-center items-center'>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center text-5xl font-bold text-[#219ebc] mb-20">Contact Us</div>
 
-       <div className="container mx-auto px-4 py-8 shadow-2xl rounded-lg bg-gradient-to-r from-yellow-300 to-orange-300   max-w-4xl">
+       <div className="container h-[80%] mx-auto px-4 py-8 shadow-2xl rounded-lg bg-gradient-to-r from-yellow-300 to-orange-300   max-w-4xl">
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
+                <div className="text-center text-5xl font-bold text-[#219ebc] mb-20">Contact Me</div>
                 <form>
                     <div className="mb-4">
                         <label className="block text-gray-500 font-semibold mb-2" htmlFor="name">Name</label>
@@ -32,14 +32,14 @@ function Contact() {
                 <ul className="text-gray-700">
                     <li className="mb-2 p-4"> 
 
-                        <span className="font-semibold">Address:</span> 123 Main St, City, Country
+                        <span className="font-semibold">Address:</span>Swabi ,KPK ,Pakistan
 
                     </li>
                     <li className="mb-2 p-4">
-                        <span className="font-semibold">Phone:</span> +1234567890
+                        <span className="font-semibold">Phone:</span> +923098967345
                     </li>
                     <li className='p-4'>
-                        <span className="font-semibold">Email:</span> info@example.com
+                        <span className="font-semibold">Email:</span> izazahmadhaider0@gmail.com
                     </li>
                 </ul>
             </div>

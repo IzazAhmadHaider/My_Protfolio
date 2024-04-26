@@ -7,26 +7,26 @@ function Experience() {
         <div className="text-center mb-20">
           <h1 className="text-4xl font-bold text-[#219ebc]">My Experience</h1>
         </div>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-col flex-wrap justify-center gap-6">
 
 
 
           <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 w-40 rounded-xl  text-white">web Developer</h2>
+            <h2 className="text-xl text-center bg-red-600 rounded-xl  px-2 text-white w-fit">Intern At HiWIFI</h2>
             <p className="text-black ">React / web Developer</p>
             <ul className="list-disc list-inside mt-4 text-gray-700">
-              <li>Developed and maintained web applications using JavaScript, React, and Node.js.</li>
+              <li>Developed and maintained web applications using JavaScript, React and tailwind</li>
             </ul>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 w-40 rounded-xl text-white">software testing</h2>
-            <p className="text-black">Start testing /creating </p>
+            <h2 className="text-xl text-center bg-red-600 w-fit rounded-xl px-2 text-white">Associate Web Develpor at MetaFront LLP</h2>
+            <p className="text-black">React/Tailwind </p>
             <ul className="list-disc list-inside mt-4 text-gray-700">
-              <li>The function of good software is to make the complex appear to be simple”.</li>
+              <li>Built Responsive Web Applications Using React/Tailwind.</li>
             </ul>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 w-40 rounded-xl  text-white">Coding</h2>
+            <h2 className="text-xl text-center bg-red-600 w-fit rounded-xl px-2 text-white">Junior Software Engineer At MetaFront LLP</h2>
             <p className="text-black te">Full Stack Developer</p>
             <ul className="list-disc list-inside mt-4 text-gray-700">
               <li>Code should run as fast as necessary, but no faster; something important is always traded away to increase speed.</li>
