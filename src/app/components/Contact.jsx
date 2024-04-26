@@ -30,7 +30,7 @@ function Contact() {
             <div className='bg-gradient-to-br from-yellow-400 shadow-2xl to-orange-400  w-96 h-full'>
                 <h2 className="text-xl font-semibold text-gray-700 text-center  mb-2">Contact Information</h2>
                 <ul className="text-gray-700">
-                    <li className="mb-2 p-4">
+                    <li className="mb-2 p-4"> 
 
                         <span className="font-semibold">Address:</span> 123 Main St, City, Country
 
