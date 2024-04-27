@@ -1,6 +1,5 @@
 import './globals.css'
 import '@mantine/core/styles.css';
-import { MantineProvider, createTheme } from '@mantine/core';
 
 export const metadata = {
   title: 'Izaz Ahmad',
@@ -9,6 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en">
       <body className='font-serif'>{children}</body>
     </html>

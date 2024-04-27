@@ -1,6 +1,12 @@
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+} from "@tabler/icons-react";
 
 function Home1({ scrollToSection }) {
   const [text, setText] = useState("");
@@ -13,22 +19,61 @@ function Home1({ scrollToSection }) {
       if (currentIndex > fullText.length) {
         clearInterval(intervalId);
       }
-    }, 100); // Adjust the interval for typing speed
+    }, 50);
 
     return () => {
       clearInterval(intervalId);
     };
   }, []);
+  const redirectToInstagram = () => {
+    window.location.href = 'https://www.instagram.com/code.with.izaz/';
+  };
+  const redirectToTwitter = () => {
+    window.location.href = 'https://twitter.com/IzazAhm99546481';
+  };
+  const redirectToFacebook = () => {
+    window.location.href = 'https://www.facebook.com/profile.php?id=100080270784104';
+  };
+  const redirectToLinkdin = () => {
+    window.location.href = 'https://www.linkedin.com/in/izaz-ahmad-035a721a3/';
+  };
 
   return (
     <>
-      <div className="flex items-center justify-between bg-gradient-to-r from-yellow-400 to-orange-400 ">
-        <div className=" pl-28 font">
+      <div className="flex items-center justify-between min-h-screen bg-gradient-to-r from-yellow-400 to-orange-400 max-lg:justify-center max-lg:items-center">
+        <div className=" pl-28 max-lg:pl-0  font">
           <p className="text-4xl text-[#219ebc] ">Hello!</p>
           <h6 className="text-3xl text-[#219ebc]">I'm Izaz Ahmad</h6>
           <h6 className="typewriter text-[#219ebc] w-[17.5rem]">
             {`F${text}`}{" "}
           </h6>
+
+          <div className="flex mt-2 space-x-2 lg:hidden">
+          <IconBrandInstagram
+          onClick={redirectToInstagram}
+            color="#219ebc"
+            size={20}
+            className="hover:scale-110 cursor-pointer"
+          />
+          <IconBrandFacebook
+          onClick={redirectToFacebook}
+            color="#219ebc"
+            size={20}
+            className="hover:scale-110 cursor-pointer"
+          />
+          <IconBrandLinkedin
+          onClick={redirectToLinkdin}
+            color="#219ebc"
+            size={20}
+            className="hover:scale-110 cursor-pointer"
+          />
+          <IconBrandX
+          onClick={redirectToTwitter}
+            color="#219ebc"
+            size={20}
+            className="hover:scale-110 cursor-pointer"
+          />
+        </div>
 
           <div className="flex justify-start items-center space-x-4 w-[21rem] mt-5">
             <button
@@ -51,26 +96,19 @@ function Home1({ scrollToSection }) {
             </a>
           </div>
         </div>
-        <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 4 }}
-        >
-        <div className="min-h-screen flex flex-col items-end pr-48">
-          <div className="flex-grow bg-transparent flex items-center justify-center">
-            <div
-              className="relative  w-72 h-72 bg-orange-400 border-2 border-[#219ebc] custom-spin-animation rounded-full"
-              style={{
-                clipPath: "circle(90% at 0% 20%)",
-              }}
-            ></div>
-            <img className="absolute w-64" src="mypic.png" alt="" />
-          </div>
-        </div>
-        </motion.div> 
-        </AnimatePresence>
+   
+            <div className="flex flex-col items-end pr-48 max-lg:pr-10 max-md:hidden">
+              <div className="flex-grow bg-transparent flex items-center justify-center">
+                <div
+                  className="relative  w-72 h-72 bg-orange-400 border-2 border-[#219ebc] custom-spin-animation rounded-full"
+                  style={{
+                    clipPath: "circle(90% at 0% 20%)",
+                  }}
+                ></div>
+                <img className="absolute w-64" src="mypic.png" alt="" />
+              </div>
+            </div>
+        
       </div>
     </>
   );

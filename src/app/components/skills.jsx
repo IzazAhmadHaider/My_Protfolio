@@ -1,12 +1,14 @@
 import React from "react";
+import { Carousel } from '@mantine/carousel';
+
 
 function SkillCard({ title, description, image, percentage }) {
   return (
-    <div className="max-w-xs rounded overflow-hidden shadow-lg bg-white p-6">
+    <div className="max-w-xs rounded-xl shadow-2xl h-[500px] flex flex-col justify-between overflow-hidden shadow-orange-900 bg-gradient-to-r from-yellow-400 to-orange-400 p-6">
       <img className="w-24 mx-auto mb-6" src={image} alt={title} />
       <div className="text-center">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
-        <p className="text-gray-700 text-base">{description}</p>
+        <p className="text-[#219ebc] text-base">{description}</p>
         <div className="mt-4 bg-gray-200 rounded-full">
           <div
             className="h-2 bg-blue-500 rounded-full"
@@ -65,11 +67,16 @@ function Skills1() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8 bg-gradient-to-r from-yellow-400 to-orange-400 overflow-hidden">
+    <>
+    <div className="bg-gradient-to-r from-yellow-400 to-orange-400 overflow-hidden">
+    <p className="text-3xl text-[#219ebc] md:text-4xl lg:text-5xl font-bold text-center my-4">Skills</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8 place-items-center ">
       {Object.values(skillsdata).map((skill, index) => (
         <SkillCard key={index} {...skill} />
       ))}
     </div>
+    </div>
+    </>
   );
 }
 

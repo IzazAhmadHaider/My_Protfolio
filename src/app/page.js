@@ -60,12 +60,12 @@ const Home = () => {
       <div className="bg-transparent flex items-center justify-between w-[100%] fixed  ">
         <div className="flex items-center pt-3 pl-3">
           <div
-            className="relative  w-7 h-7 bg-orange-400  border-2 border-[#219ebc] custom-spin-animation rounded-full"
+            className="relative  w-7 h-7 bg-orange-400 md:hidden  border-2 border-[#219ebc] custom-spin-animation rounded-full"
             style={{
               clipPath: "circle(90% at 0% 20%)",
             }}
           ></div>
-          <img className="absolute w-6 pl-[3px] " src="mypic.png" alt="" />
+          <img className="absolute w-6 pl-[3px] md:hidden " src="mypic.png" alt="" />
           <p className="text-[#219ebc] text-lg font">&nbsp;&nbsp;Izaz Ahmad</p>
         </div>
         <div className="flex items-end pr-3 space-x-2 max-lg:hidden">
@@ -98,7 +98,7 @@ const Home = () => {
       <div
         className={`${
           showNavbar
-            ? "bg-transparent w-fit h-[60px] left-[35%] right-[35%] pt-[5px] pb-[20px] mt-2 rounded-full fixed text-[#219ebc] z-40"
+            ? "bg-transparent w-fit h-[60px] left-[50%] -translate-x-[50%] pt-[5px] pb-[20px] mt-2 rounded-full fixed max-lg:hidden text-[#219ebc] z-40"
             : "hidden"
         }`}
       >
