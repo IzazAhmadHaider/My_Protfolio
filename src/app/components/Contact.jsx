@@ -10,7 +10,7 @@ function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-                <div className="text-center text-5xl font-bold text-[#219ebc] mb-20">Contact Me</div>
+                <div className="text-center text-5xl font-bold text-[#4c4c4c] mb-20">Contact Me</div>
                 <form>
                     <div className="mb-4">
                         <label className="block text-gray-500 font-semibold mb-2" htmlFor="name">Name</label>

@@ -5,7 +5,7 @@ function Experience() {
     <div className="flex items-center justify-between bg-gradient-to-r from-yellow-400 to-orange-400 min-h-screen px-10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <h1 className="text-4xl font-bold text-[#219ebc]">My Experience</h1>
+          <h1 className="text-4xl font-bold text-[#4c4c4c]">My Experience</h1>
         </div>
         <div className="flex flex-col flex-wrap justify-center gap-6">
 
