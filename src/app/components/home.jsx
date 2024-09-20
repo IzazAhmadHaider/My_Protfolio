@@ -51,9 +51,14 @@ function Home1({ scrollToSection }) {
               </div>
             </div>
           </div>
-          <h6 className="typewriter text-[#4c4c4c] w-[17.5rem]">
-            {`F${text}`}{" "}
-          </h6>
+          <div className="flex space-x-1">
+            <p className="text-[#4c4c4c]">Creative Frontend Web Developer</p>
+            <div class="text-container">
+              <h1 class="coder2">ReactJs</h1>
+              <h1 class="coder3">NextJs</h1>
+              <h1 class="coder1">TailwindCSS</h1>
+            </div>
+          </div>
 
           <div className="flex mt-2 space-x-2 lg:hidden">
             <IconBrandInstagram

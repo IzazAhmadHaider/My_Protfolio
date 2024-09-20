@@ -8,7 +8,10 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 
-function Fixedlayout() {
+function Fixedlayout({ onSectionChange }) {
+  const handleNavClick = (section) => {
+    onSectionChange(section);
+  };
 
 
   const redirectToInstagram = () => {
@@ -54,6 +57,7 @@ function Fixedlayout() {
               className="cursor-pointer hover:scale-110  "
               smooth={true}
               duration={500}
+              onClick={() => handleNavClick("home")}
             >
               Home
             </Link>
@@ -62,6 +66,7 @@ function Fixedlayout() {
               className="cursor-pointer hover:scale-110  "
               smooth={true}
               duration={500}
+              onClick={() => handleNavClick("skills")}
             >
               Skills
             </Link>
@@ -70,6 +75,7 @@ function Fixedlayout() {
               className="cursor-pointer hover:scale-110  "
               smooth={true}
               duration={500}
+              onClick={() => handleNavClick("projects")}
             >
               Projects
             </Link>
@@ -78,6 +84,7 @@ function Fixedlayout() {
               className="cursor-pointer hover:scale-110  "
               smooth={true}
               duration={500}
+              onClick={() => handleNavClick("experience")}
             >
               Experience
             </Link>
@@ -86,6 +93,7 @@ function Fixedlayout() {
               className="cursor-pointer hover:scale-110  "
               smooth={true}
               duration={500}
+              onClick={() => handleNavClick("contacts")}
             >
               Contacts
             </Link>

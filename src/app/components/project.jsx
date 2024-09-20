@@ -24,9 +24,9 @@ const MyComponent = () => {
   ];
 
   return (
-    <div className="flex items-center justify-between bg-gradient-to-r from-yellow-400 to-orange-400 min-h-screen p-10">
-      <div className="bg-transparent py-12 px-6 md:px-12 lg:px-24">
-        <h2 className="text-3xl text-[#4c4c4c] md:text-4xl lg:text-5xl font-bold text-center mb-12">Projects</h2>
+    <div className="flex w-[90%]  h-[90%] overflow-auto py-2 pl-2">
+      <div className="bg-transparent w-full py-2 pl-2">
+        <h2 className="text-3xl text-[#4c4c4c]  font-bold text-center mb-12">Projects</h2>
 
         {projects.map((project, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden mb-12">

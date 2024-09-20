@@ -2,12 +2,12 @@ import React from 'react';
 
 function Experience() {
   return (
-    <div className="flex items-center justify-between bg-gradient-to-r from-yellow-400 to-orange-400 min-h-screen px-10">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h1 className="text-4xl font-bold text-[#4c4c4c]">My Experience</h1>
+    <div className="flex items-center justify-center h-[90%] overflow-auto px-10 py-5">
+      <div className="max-w-5xl mx-auto h-full">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-[#4c4c4c] pb-10">My Experience</h1>
         </div>
-        <div className="flex flex-col flex-wrap justify-center gap-6">
+        <div className="flex flex-col flex-wrap justify-center gap-2">
 
 
 

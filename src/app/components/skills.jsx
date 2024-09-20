@@ -4,8 +4,8 @@ import { Carousel } from '@mantine/carousel';
 
 function SkillCard({ title, description, image, percentage }) {
   return (
-    <div className="max-w-[150px] rounded-xl shadow-2xl h-[200px] flex flex-col justify-between overflow-hidden bg-[#d9dcde] p-2">
-      <img className="w-8 mx-auto mb-1" src={image} alt={title} />
+    <div className="max-w-[200px] rounded-xl shadow-2xl h-[200px] flex flex-col justify-between overflow-hidden bg-[#d9dcde] p-2">
+      <img className="w-8 mx-auto mb-1 grayscale" src={image} alt={title} />
       <div className="text-center">
         <h2 className="text-sm font-bold mb-1">{title}</h2>
         <p className="text-[#4c4c4c] text-[10px] leading-tight text-left">{description}</p>
@@ -64,7 +64,7 @@ function Skills1() {
     <>
     <div className=" overflow-auto h-[90%]">
     <p className="text-xl text-[#4c4c4c]  font-bold text-center ">Skills</p>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-8 place-items-center ">
+    <div className="grid grid-cols-1 md:grid-cols-2  gap-4 p-8 place-items-center ">
       {Object.values(skillsdata).map((skill, index) => (
         <SkillCard key={index} {...skill} />
       ))}
