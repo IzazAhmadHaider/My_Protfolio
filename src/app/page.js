@@ -5,16 +5,10 @@ import Home1 from "./components/home";
 import Skills1 from "./components/skills";
 import Project from "./components/project";
 import "./global.scss";
-import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandX,
-} from "@tabler/icons-react";
 import Experience from "./components/Experience";
 import Contact from "./components/Contact";
-import Fixedlayout from "./components/fixedlayout";
 import Image from "next/image";
+import Fixedlayout from "./components/Fixedlayout";
 
 const Home = () => {
   const [showNavbar, setShowNavbar] = useState(true);
@@ -99,9 +93,9 @@ const Home = () => {
                 alt="My Picture"
               />
 
-              <div class="channel r"></div>
-              <div class="channel g"></div>
-              <div class="channel b"></div>
+              <div className="channel r"></div>
+              <div className="channel g"></div>
+              <div className="channel b"></div>
             </div>
           </div>
         </div>
