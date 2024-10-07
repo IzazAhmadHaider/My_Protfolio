@@ -1,18 +1,22 @@
 "use client";
-import React from "react";
-import { Link , animateScroll as scroll } from "react-scroll";
+import React, { useState } from "react";
+import { Link } from "react-scroll";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandX,
+  IconMenu2, // This is the hamburger icon from Tabler Icons
+  IconX, // Close icon for toggling the menu
 } from "@tabler/icons-react";
 
 function Fixedlayout({ onSectionChange }) {
+  const [menuOpen, setMenuOpen] = useState(false); // State to control menu visibility
+
   const handleNavClick = (section) => {
     onSectionChange(section);
+    setMenuOpen(false); // Close menu when an item is clicked
   };
-
 
   const redirectToInstagram = () => {
     window.location.href = "https://www.instagram.com/code.with.izaz/";
@@ -30,10 +34,12 @@ function Fixedlayout({ onSectionChange }) {
 
   return (
     <div className="h-auto">
-      <div className="bg-transparent flex items-center justify-between w-[100%] fixed  ">
+      {/* Navbar Container */}
+      <div className="bg-transparent flex items-center justify-between w-[100%] fixed z-50">
+        {/* Logo Section */}
         <div className="flex items-center pt-3 pl-3">
           <div
-            className="relative  w-7 h-7 bg-orange-400 md:hidden  border-2 border-[#4c4c4c] custom-spin-animation rounded-full"
+            className="relative w-7 h-7 bg-orange-400 md:hidden border-2 border-[#4c4c4c] custom-spin-animation rounded-full"
             style={{
               clipPath: "circle(90% at 0% 20%)",
             }}
@@ -46,15 +52,14 @@ function Fixedlayout({ onSectionChange }) {
           <p className="text-[#4c4c4c] text-lg font">&nbsp;&nbsp;Izaz Ahmad</p>
         </div>
 
+        {/* Navbar Links for larger screens */}
         <div
-          className={`
-       "bg-transparent w-fit h-[60px] pt-[5px] pb-[20px] mt-2 rounded-full max-lg:hidden text-[#4c4c4c] z-40"
-      `}
+          className={`bg-transparent w-fit h-[60px] pt-[5px] pb-[20px] mt-2 rounded-full max-lg:hidden text-[#4c4c4c] z-40`}
         >
           <nav className="flex justify-center items-center space-x-3 font-serif font-semibold mx-3 bg-white p-3 rounded-full bg-opacity-10 ">
             <Link
               to="home"
-              className="cursor-pointer hover:scale-110  "
+              className="cursor-pointer hover:scale-110"
               smooth={true}
               duration={500}
               onClick={() => handleNavClick("home")}
@@ -63,7 +68,7 @@ function Fixedlayout({ onSectionChange }) {
             </Link>
             <Link
               to="skills"
-              className="cursor-pointer hover:scale-110  "
+              className="cursor-pointer hover:scale-110"
               smooth={true}
               duration={500}
               onClick={() => handleNavClick("skills")}
@@ -72,7 +77,7 @@ function Fixedlayout({ onSectionChange }) {
             </Link>
             <Link
               to="projects"
-              className="cursor-pointer hover:scale-110  "
+              className="cursor-pointer hover:scale-110"
               smooth={true}
               duration={500}
               onClick={() => handleNavClick("projects")}
@@ -81,7 +86,7 @@ function Fixedlayout({ onSectionChange }) {
             </Link>
             <Link
               to="experience"
-              className="cursor-pointer hover:scale-110  "
+              className="cursor-pointer hover:scale-110"
               smooth={true}
               duration={500}
               onClick={() => handleNavClick("experience")}
@@ -90,7 +95,7 @@ function Fixedlayout({ onSectionChange }) {
             </Link>
             <Link
               to="contacts"
-              className="cursor-pointer hover:scale-110  "
+              className="cursor-pointer hover:scale-110"
               smooth={true}
               duration={500}
               onClick={() => handleNavClick("contacts")}
@@ -99,7 +104,79 @@ function Fixedlayout({ onSectionChange }) {
             </Link>
           </nav>
         </div>
+
+        {/* Hamburger Menu for smaller screens */}
+        <div className="md:hidden flex items-center pr-3">
+          {menuOpen ? (
+            <IconX
+              size={24}
+              className="text-[#4c4c4c] cursor-pointer"
+              onClick={() => setMenuOpen(false)} // Close the menu
+            />
+          ) : (
+            <IconMenu2
+              size={24}
+              className="text-[#4c4c4c] cursor-pointer"
+              onClick={() => setMenuOpen(true)} // Open the menu
+            />
+          )}
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-40 flex flex-col items-center justify-center">
+          <nav className="flex flex-col space-y-4 text-lg font-serif font-semibold text-[#4c4c4c]">
+            <Link
+              to="home"
+              className="cursor-pointer hover:scale-110"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavClick("home")}
+            >
+              Home
+            </Link>
+            <Link
+              to="skills"
+              className="cursor-pointer hover:scale-110"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavClick("skills")}
+            >
+              Skills
+            </Link>
+            <Link
+              to="projects"
+              className="cursor-pointer hover:scale-110"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavClick("projects")}
+            >
+              Projects
+            </Link>
+            <Link
+              to="experience"
+              className="cursor-pointer hover:scale-110"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavClick("experience")}
+            >
+              Experience
+            </Link>
+            <Link
+              to="contacts"
+              className="cursor-pointer hover:scale-110"
+              smooth={true}
+              duration={500}
+              onClick={() => handleNavClick("contacts")}
+            >
+              Contacts
+            </Link>
+          </nav>
+        </div>
+      )}
+
+      {/* Social Media Icons */}
       <div className="flex fixed bottom-4 right-4 pr-3 space-x-2 max-lg:hidden">
         <IconBrandInstagram
           onClick={redirectToInstagram}
@@ -126,7 +203,6 @@ function Fixedlayout({ onSectionChange }) {
           className="hover:scale-110 cursor-pointer"
         />
       </div>
-      
     </div>
   );
 }

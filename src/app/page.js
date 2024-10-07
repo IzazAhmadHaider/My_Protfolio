@@ -30,7 +30,7 @@ const Home = () => {
           {isSectionVisible("home") && (
             <section
               ref={(el) => (sectionsRef.current.home = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] ${
+              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
                 isSectionVisible("home") && "flipper "
               }`}
               id="home"
@@ -41,7 +41,7 @@ const Home = () => {
           {isSectionVisible("skills") && (
             <section
               ref={(el) => (sectionsRef.current.skills = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] ${
+              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
                 isSectionVisible("skills") && "flipper "
               }`}
               id="skills"
@@ -52,7 +52,7 @@ const Home = () => {
           {isSectionVisible("projects") && (
             <section
               ref={(el) => (sectionsRef.current.projects = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] ${
+              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
                 isSectionVisible("projects") && "flipper "
               }`}
               id="projects"
@@ -63,7 +63,7 @@ const Home = () => {
           {isSectionVisible("experience") && (
             <section
               ref={(el) => (sectionsRef.current.experience = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] ${
+              className={`h-full flex justify-center items-center transition-all w-[70%]  max-md:w-full ${
                 isSectionVisible("experience") && "flipper "
               }`}
               id="experience"
@@ -74,7 +74,7 @@ const Home = () => {
           {isSectionVisible("contacts") && (
             <section
               ref={(el) => (sectionsRef.current.contacts = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] ${
+              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
                 isSectionVisible("contacts") && "flipper "
               }`}
               id="contacts"
