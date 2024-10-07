@@ -101,9 +101,9 @@ function Home1({ scrollToSection }) {
             </button>
 
             <a
-              href="https://drive.google.com/uc?export=download&id=11pov35U5WhmYLds9tdCriu06O6bHG62V
+              href="https://drive.google.com/uc?export=download&id=1PPWsKxaSs2zBIqWiTeyBBZpH3ZZleQ0w
 "
-              download="https://drive.google.com/uc?export=download&id=11pov35U5WhmYLds9tdCriu06O6bHG62V
+              download="izazahmadReactjs
 "
             >
               <button className="group bg-[#4d4d4d] relative hover:text-[#4d4d4d] border text-white font-semibold py-2 px-2 rounded-xl flex">
