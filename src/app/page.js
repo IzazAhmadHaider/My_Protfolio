@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="bg-[#fff]">
       <div className="absolute">
-        <Fixedlayout onSectionChange={handleSectionChange} />
+        <Fixedlayout onSectionChange={handleSectionChange} /> 
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">
         <div className="flex justify-between flex-row-reverse bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
