@@ -53,10 +53,10 @@ function Home1({ scrollToSection }) {
           </div>
           <div className="flex space-x-1">
             <p className="text-[#4c4c4c]">Creative Frontend Web Developer</p>
-            <div class="text-container">
-              <h1 class="coder2">ReactJs</h1>
-              <h1 class="coder3">NextJs</h1>
-              <h1 class="coder1">TailwindCSS</h1>
+            <div className="text-container">
+              <h1 className="coder2">ReactJs</h1>
+              <h1 className="coder3">NextJs</h1>
+              <h1 className="coder1">TailwindCSS</h1>
             </div>
           </div>
 
