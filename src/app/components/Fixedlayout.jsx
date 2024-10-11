@@ -140,7 +140,7 @@ function Fixedlayout({ onSectionChange }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-[#4d4d4d] bg-opacity-90 z-40 flex flex-col items-center justify-center">
+        <div className="fixed top-0 left-0 w-full h-full bg-[#fff] bg-opacity-90 z-40 flex flex-col items-center justify-center">
           <nav className="flex flex-col space-y-4 text-lg font-serif font-semibold text-[#4c4c4c]">
             <Link
               to="home"

@@ -2,24 +2,25 @@ import React from "react";
 
 function Contact() {
   return (
-    <div className="py-6 scale-90 flex justify-center items-center h-[90%] overflow-y-auto bg-[#fff]">
-      <div className="max-w-5xl mx-auto overflow-hidden h-full">
-        <div className="container h-[100%] mx-auto px-4 py-8 shadow-2xl rounded-lg bg-[#4d4d4d] max-w-4xl">
+    <div className="py-6 scale-90 flex justify-center items-center h-[90%] overflow-y-auto bg-[#333]">
+      <div className="max-w-5xl mx-auto overflow-hidden h-full w-full">
+        <div className="container h-[100%] mx-auto px-4 py-8 shadow-2xl rounded-lg bg-[#f0f0f0] max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+            {/* Left Column */}
             <div className="overflow-y-auto h-full">
-              <div className="text-center text-5xl font-bold text-[#fff] mb-8">
+              <div className="text-center text-4xl md:text-5xl font-bold text-[#333] mb-8">
                 Contact Me
               </div>
               <form>
                 <div className="mb-6">
                   <label
-                    className="block text-[#fff] font-semibold mb-2"
+                    className="block text-[#333] font-semibold mb-2"
                     htmlFor="name"
                   >
                     Name
                   </label>
                   <input
-                    className="w-full px-4 py-2 border border-[#4c4c4c] bg-[#fff] text-[#4c4c4c] rounded-xl shadow-lg focus:outline-none"
+                    className="w-full px-4 py-2 border border-[#ccc] bg-[#333] text-[#f0f0f0] rounded-xl shadow-lg focus:outline-none"
                     type="text"
                     id="name"
                     name="name"
@@ -28,13 +29,13 @@ function Contact() {
                 </div>
                 <div className="mb-6">
                   <label
-                    className="block text-[#fff] font-semibold mb-2"
+                    className="block text-[#333] font-semibold mb-2"
                     htmlFor="email"
                   >
                     Email
                   </label>
                   <input
-                    className="w-full px-4 py-2 border border-[#4c4c4c] bg-[#fff] text-[#4c4c4c] rounded-xl shadow-lg focus:outline-none"
+                    className="w-full px-4 py-2 border border-[#ccc] bg-[#333] text-[#f0f0f0] rounded-xl shadow-lg focus:outline-none"
                     type="email"
                     id="email"
                     name="email"
@@ -43,13 +44,13 @@ function Contact() {
                 </div>
                 <div className="mb-6">
                   <label
-                    className="block text-[#fff] font-semibold mb-2"
+                    className="block text-[#333] font-semibold mb-2"
                     htmlFor="message"
                   >
                     Message
                   </label>
                   <textarea
-                    className="w-full px-4 py-2 border border-[#4c4c4c] bg-[#fff] text-[#4c4c4c] rounded-xl shadow-lg focus:outline-none"
+                    className="w-full px-4 py-2 border border-[#ccc] bg-[#333] text-[#f0f0f0] rounded-xl shadow-lg focus:outline-none"
                     id="message"
                     name="message"
                     rows="4"
@@ -57,14 +58,16 @@ function Contact() {
                   ></textarea>
                 </div>
                 <button
-                  className="w-full text-[#fff] bg-[#4c4c4c] px-6 py-3 rounded-lg shadow-lg hover:bg-[#fff] hover:text-[#4c4c4c] transition-colors duration-300"
+                  className="w-full text-[#333] bg-[#f0f0f0] border border-[#333] px-6 py-3 rounded-lg shadow-lg hover:bg-[#333] hover:text-[#f0f0f0] transition-colors duration-300"
                   type="submit"
                 >
                   Send Message
                 </button>
               </form>
             </div>
-            <div className="shadow-lg w-96 h-full bg-[#4c4c4c] rounded-xl p-6 text-[#fff]">
+
+            {/* Right Column (Contact Information) */}
+            <div className="shadow-lg w-full h-full bg-[#333] rounded-xl p-6 text-[#f0f0f0]">
               <h2 className="text-2xl font-semibold text-center mb-6">
                 Contact Information
               </h2>
