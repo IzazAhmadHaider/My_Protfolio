@@ -8,7 +8,7 @@ import {
   IconBrandX,
 } from "@tabler/icons-react";
 
-function Home1({ scrollToSection }) {
+function Home1({onSectionChange}) {
   const [text, setText] = useState("");
   const fullText = "rontend Web Developer | ReactJs";
   useEffect(() => {
@@ -26,7 +26,7 @@ function Home1({ scrollToSection }) {
     };
   }, []);
   const redirectToInstagram = () => {
-    window.location.href = "https://www.instagram.com/code.with.izaz/";
+    window.location.href = "https://www.instagram.com/izazcodes/";
   };
   const redirectToTwitter = () => {
     window.location.href = "https://twitter.com/IzazAhm99546481";
@@ -37,6 +37,9 @@ function Home1({ scrollToSection }) {
   };
   const redirectToLinkdin = () => {
     window.location.href = "https://www.linkedin.com/in/izaz-ahmad-035a721a3/";
+  };
+  const handleNavClick = (section) => {
+    onSectionChange(section);
   };
 
   return (
@@ -89,7 +92,7 @@ function Home1({ scrollToSection }) {
 
           <div className="flex justify-start items-center space-x-4 w-[21rem] mt-5">
             <button
-              onClick={() => scrollToSection("contacts")}
+              onClick={() => handleNavClick("contacts")}
               className="group bg-[#4d4d4d] relative hover:text-[#4d4d4d] border text-white font-semibold py-2 px-2 rounded-xl flex"
             >
               <span className="w-0 group-hover:w-[102%] h-full bg-white border opacity-0 group-hover:opacity-100 absolute top-0 -left-[1px] transition-all origin-center duration-500 rounded-xl z-0"></span>

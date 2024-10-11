@@ -11,15 +11,17 @@ import {
 } from "@tabler/icons-react";
 
 function Fixedlayout({ onSectionChange }) {
-  const [menuOpen, setMenuOpen] = useState(false); // State to control menu visibility
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeScreen, setActiveScreen] = useState('home');
 
   const handleNavClick = (section) => {
     onSectionChange(section);
-    setMenuOpen(false); // Close menu when an item is clicked
+    setActiveScreen(section);
+    setMenuOpen(false);
   };
 
   const redirectToInstagram = () => {
-    window.location.href = "https://www.instagram.com/code.with.izaz/";
+    window.location.href = "https://www.instagram.com/izazcodes/";
   };
   const redirectToTwitter = () => {
     window.location.href = "https://twitter.com/IzazAhm99546481";
@@ -39,7 +41,7 @@ function Fixedlayout({ onSectionChange }) {
         {/* Logo Section */}
         <div className="flex items-center pt-3 pl-3">
           <div
-            className="relative w-7 h-7 bg-orange-400 md:hidden border-2 border-[#4c4c4c] custom-spin-animation rounded-full"
+            className="relative w-7 h-7 bg-orange-400 md:hidden -2 -[#4c4c4c] custom-spin-animation rounded-full"
             style={{
               clipPath: "circle(90% at 0% 20%)",
             }}
@@ -51,58 +53,71 @@ function Fixedlayout({ onSectionChange }) {
           />
           <p className="text-[#4c4c4c] text-lg font">&nbsp;&nbsp;Izaz Ahmad</p>
         </div>
-
-        {/* Navbar Links for larger screens */}
         <div
           className={`bg-transparent w-fit h-[60px] pt-[5px] pb-[20px] mt-2 rounded-full max-lg:hidden text-[#4c4c4c] z-40`}
         >
-          <nav className="flex justify-center items-center space-x-3 font-serif font-semibold mx-3 bg-white p-3 rounded-full bg-opacity-10 ">
-            <Link
-              to="home"
-              className="cursor-pointer hover:scale-110"
-              smooth={true}
-              duration={500}
+          <nav className="flex justify-center items-center space-x-0 font-serif font-semibold mx-3 p-3 rounded-full bg-opacity-10">
+            <div
               onClick={() => handleNavClick("home")}
+              className={`group bg-[#fff] relative ${activeScreen === "home" ? "text-[#fff]" : "text-[#4d4d4d]"
+                } hover:text-[#fff] font-semibold py-1 px-2 flex cursor-pointer`}
             >
-              Home
-            </Link>
-            <Link
-              to="skills"
-              className="cursor-pointer hover:scale-110"
-              smooth={true}
-              duration={500}
+              <span
+                className={`w-0 ${activeScreen === "home" ? "w-[102%] opacity-100" : "group-hover:w-[102%] opacity-0 group-hover:opacity-100"
+                  } h-full bg-[#4d4d4d] absolute top-0 -left-[1px] transition-all origin-center duration-500 z-0`}
+              ></span>
+              <span className="flex z-10">Home</span>
+            </div>
+
+            <div
               onClick={() => handleNavClick("skills")}
+              className={`group bg-[#fff] relative ${activeScreen === "skills" ? "text-[#fff]" : "text-[#4d4d4d]"
+                } hover:text-[#fff] font-semibold py-1 px-2 flex cursor-pointer`}
             >
-              Skills
-            </Link>
-            <Link
-              to="projects"
-              className="cursor-pointer hover:scale-110"
-              smooth={true}
-              duration={500}
+              <span
+                className={`w-0 ${activeScreen === "skills" ? "w-[102%] opacity-100" : "group-hover:w-[102%] opacity-0 group-hover:opacity-100"
+                  } h-full bg-[#4d4d4d] absolute top-0 -left-[1px] transition-all origin-center duration-500 z-0`}
+              ></span>
+              <span className="flex z-10">Skills</span>
+            </div>
+
+            <div
               onClick={() => handleNavClick("projects")}
+              className={`group bg-[#fff] relative ${activeScreen === "projects" ? "text-[#fff]" : "text-[#4d4d4d]"
+                } hover:text-[#fff] font-semibold py-1 px-2 flex cursor-pointer`}
             >
-              Projects
-            </Link>
-            <Link
-              to="experience"
-              className="cursor-pointer hover:scale-110"
-              smooth={true}
-              duration={500}
+              <span
+                className={`w-0 ${activeScreen === "projects" ? "w-[102%] opacity-100" : "group-hover:w-[102%] opacity-0 group-hover:opacity-100"
+                  } h-full bg-[#4d4d4d] absolute top-0 -left-[1px] transition-all origin-center duration-500 z-0`}
+              ></span>
+              <span className="flex z-10">Projects</span>
+            </div>
+
+            <div
               onClick={() => handleNavClick("experience")}
+              className={`group bg-[#fff] relative ${activeScreen === "experience" ? "text-[#fff]" : "text-[#4d4d4d]"
+                } hover:text-[#fff] font-semibold py-1 px-2 flex cursor-pointer`}
             >
-              Experience
-            </Link>
-            <Link
-              to="contacts"
-              className="cursor-pointer hover:scale-110"
-              smooth={true}
-              duration={500}
+              <span
+                className={`w-0 ${activeScreen === "experience" ? "w-[102%] opacity-100" : "group-hover:w-[102%] opacity-0 group-hover:opacity-100"
+                  } h-full bg-[#4d4d4d] absolute top-0 -left-[1px] transition-all origin-center duration-500 z-0`}
+              ></span>
+              <span className="flex z-10">Experience</span>
+            </div>
+
+            <div
               onClick={() => handleNavClick("contacts")}
+              className={`group bg-[#fff] relative ${activeScreen === "contacts" ? "text-[#fff]" : "text-[#4d4d4d]"
+                } hover:text-[#fff] font-semibold py-1 px-2 flex cursor-pointer`}
             >
-              Contacts
-            </Link>
+              <span
+                className={`w-0 ${activeScreen === "contacts" ? "w-[102%] opacity-100" : "group-hover:w-[102%] opacity-0 group-hover:opacity-100"
+                  } h-full bg-[#4d4d4d] absolute top-0 -left-[1px] transition-all origin-center duration-500 z-0`}
+              ></span>
+              <span className="flex z-10">Contacts</span>
+            </div>
           </nav>
+
         </div>
 
         {/* Hamburger Menu for smaller screens */}
@@ -125,7 +140,7 @@ function Fixedlayout({ onSectionChange }) {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-90 z-40 flex flex-col items-center justify-center">
+        <div className="fixed top-0 left-0 w-full h-full bg-[#4d4d4d] bg-opacity-90 z-40 flex flex-col items-center justify-center">
           <nav className="flex flex-col space-y-4 text-lg font-serif font-semibold text-[#4c4c4c]">
             <Link
               to="home"
