@@ -1,41 +1,85 @@
 import React from 'react';
 
+const experiences = [
+  {
+    role: 'Software Engineer at MetaFront LLP',
+    position: 'Full Stack Developer',
+    description: [
+      'Developed full-stack applications using Node.js for the backend and React for the frontend.',
+      'Managed database design and integration using MongoDB and ensured data integrity.',
+      'Optimized application performance and reduced server response time by 20%.',
+      'Worked closely with the product team to identify requirements and deliver features on time.',
+      'Implemented caching and other performance optimization techniques to enhance scalability.',
+    ],
+  },
+  {
+    role: 'Junior Software Engineer at MetaFront LLP',
+    position: 'Full Stack Developer',
+    description: [
+      'Developed full-stack applications using Node.js for the backend and React for the frontend.',
+      'Managed database design and integration using MongoDB and ensured data integrity.',
+      'Optimized application performance and reduced server response time by 20%.',
+      'Worked closely with the product team to identify requirements and deliver features on time.',
+      'Implemented caching and other performance optimization techniques to enhance scalability.',
+    ],
+  },
+
+  {
+    role: 'Associate Web Developer at MetaFront LLP',
+    position: 'React / Tailwind Developer',
+    description: [
+      'Led the development of multiple client-facing projects using React and Tailwind CSS.',
+      'Implemented dynamic, responsive web components to improve user interaction and experience.',
+      'Optimized web applications for better performance and cross-browser compatibility.',
+      'Collaborated with backend teams to integrate APIs and manage data handling in the frontend.',
+      'Ensured the applications followed best practices in security, scalability, and accessibility.',
+    ],
+  },
+  {
+    role: 'Intern At HiWIFI',
+    position: 'React / Web Developer',
+    description: [
+      'Developed and maintained web applications using JavaScript, React, and Tailwind.',
+      'Collaborated with senior developers to fix bugs and improve code efficiency.',
+      'Assisted in integrating RESTful APIs to fetch and display data on the frontend.',
+      'Participated in daily standups, contributing to agile development processes.',
+      'Worked on building responsive and accessible user interfaces across various devices.',
+    ],
+  },
+];
+
 function Experience() {
   return (
-    <div className="flex items-center justify-center h-[90%] overflow-auto px-10 py-5">
-      <div className="max-w-5xl mx-auto h-full">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-[#4c4c4c] pb-10">My Experience</h1>
+    <div className="flex items-center justify-center bg-[#f9f9f9] h-[100%] py-4">
+      <div className="max-w-3xl w-full mx-auto h-full">
+        {/* Sticky title section */}
+        <div className="sticky top-0 bg-[#f9f9f9] z-10 pb-4">
+          <h1 className="text-4xl font-bold text-[#4c4c4c] text-center">My Experience</h1>
         </div>
-        <div className="flex flex-col flex-wrap justify-center gap-2">
 
-
-
-          <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 rounded-xl  px-2 text-white w-fit">Intern At HiWIFI</h2>
-            <p className="text-black ">React / web Developer</p>
-            <ul className="list-disc list-inside mt-4 text-gray-700">
-              <li>Developed and maintained web applications using JavaScript, React and tailwind</li>
-            </ul>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 w-fit rounded-xl px-2 text-white">Associate Web Develpor at MetaFront LLP</h2>
-            <p className="text-black">React/Tailwind </p>
-            <ul className="list-disc list-inside mt-4 text-gray-700">
-              <li>Built Responsive Web Applications Using React/Tailwind.</li>
-            </ul>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg flex-1 min-w-300px">
-            <h2 className="text-xl text-center bg-red-600 w-fit rounded-xl px-2 text-white">Junior Software Engineer At MetaFront LLP</h2>
-            <p className="text-black te">Full Stack Developer</p>
-            <ul className="list-disc list-inside mt-4 text-gray-700">
-              <li>Code should run as fast as necessary, but no faster; something important is always traded away to increase speed.</li>
-            </ul>
+        {/* Scrollable content */}
+        <div className="h-[calc(100%-4rem)] overflow-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {experiences.map((experience, index) => (
+              <div 
+                key={index} 
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+              >
+                <h2 className="text-lg font-semibold text-center bg-[#4c4c4c] min-h-[13%] m-auto text-white rounded-lg px-4 py-2 mx-auto mb-4">
+                  {experience.role}
+                </h2>
+                <p className="text-[#4c4c4c] text-center font-medium h-12">{experience.position}</p>
+                <ul className="list-disc list-inside text-[#4c4c4c] space-y-2 mt-4">
+                  {experience.description.map((desc, idx) => (
+                    <li key={idx}>{desc}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
-
   );
 }
 

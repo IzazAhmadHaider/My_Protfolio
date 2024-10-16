@@ -2,17 +2,17 @@ import React from "react";
 
 function Contact() {
   return (
-    <div className="py-6 scale-90 flex justify-center items-center h-[90%] overflow-y-auto bg-[#333]">
-      <div className="max-w-5xl mx-auto overflow-hidden h-full w-full">
-        <div className="container h-[100%] mx-auto px-4 py-8 shadow-2xl rounded-lg bg-[#f0f0f0] max-w-4xl">
+    <div className="h-[100%] flex justify-center items-center py-6">
+      <div className="max-w-5xl w-full mx-auto h-full overflow-hidden">
+        <div className="container mx-auto px-4 py-8 shadow-2xl rounded-lg bg-[#f0f0f0] max-w-4xl h-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
-            {/* Left Column */}
-            <div className="overflow-y-auto h-full">
+            {/* Left Column - Contact Form */}
+            <div className="overflow-auto h-full">
               <div className="text-center text-4xl md:text-5xl font-bold text-[#333] mb-8">
                 Contact Me
               </div>
-              <form>
-                <div className="mb-6">
+              <form className="space-y-6">
+                <div>
                   <label
                     className="block text-[#333] font-semibold mb-2"
                     htmlFor="name"
@@ -27,7 +27,7 @@ function Contact() {
                     placeholder="Your Name"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <label
                     className="block text-[#333] font-semibold mb-2"
                     htmlFor="email"
@@ -42,7 +42,7 @@ function Contact() {
                     placeholder="Your Email"
                   />
                 </div>
-                <div className="mb-6">
+                <div>
                   <label
                     className="block text-[#333] font-semibold mb-2"
                     htmlFor="message"
@@ -66,17 +66,17 @@ function Contact() {
               </form>
             </div>
 
-            {/* Right Column (Contact Information) */}
-            <div className="shadow-lg w-full h-full bg-[#333] rounded-xl p-6 text-[#f0f0f0]">
+            {/* Right Column - Contact Information */}
+            <div className="shadow-lg w-full h-full bg-[#333] rounded-xl p-6 text-[#f0f0f0] overflow-auto">
               <h2 className="text-2xl font-semibold text-center mb-6">
                 Contact Information
               </h2>
-              <ul>
-                <li className="mb-4">
+              <ul className="space-y-4">
+                <li>
                   <span className="font-semibold">Address:</span> Swabi, KPK,
                   Pakistan
                 </li>
-                <li className="mb-4">
+                <li>
                   <span className="font-semibold">Phone:</span> +923098967345
                 </li>
                 <li>
