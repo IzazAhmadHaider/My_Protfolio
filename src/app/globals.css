@@ -155,4 +155,56 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+/* Keyframes for the top line animation (rises from bottom to top) */
+@keyframes animateTop {
+  0% {
+    transform: translateY(100vh); /* Start from below the screen */
+  }
+  100% {
+    transform: translateY(-20vh); /* Move the line above the screen */
+  }
+}
 
+/* Keyframes for the left panel animation */
+@keyframes animateLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50vw);
+  }
+}
+
+/* Keyframes for the right panel animation */
+@keyframes animateRight {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50vw);
+  }
+}
+
+/* Animation for the top line */
+.animate-top {
+  animation: animateTop 1s forwards;
+  position: absolute;
+  bottom: 0; /* Start at the bottom of the screen */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Ensure perfect centering */
+  z-index: 100; /* Make sure the line is above the black panels */
+}
+
+/* Animation for the left panel with a delay */
+.animate-left {
+  animation: animateLeft 1s forwards;
+  animation-delay: 1s; /* Start after the line animation */
+  z-index: 50; /* Lower z-index for black panels */
+}
+
+/* Animation for the right panel with a delay */
+.animate-right {
+  animation: animateRight 1s forwards;
+  animation-delay: 1s; /* Start after the line animation */
+  z-index: 50; /* Lower z-index for black panels */
+}

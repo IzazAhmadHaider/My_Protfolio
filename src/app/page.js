@@ -10,10 +10,12 @@ import Fixedlayout from "./components/Fixedlayout";
 import "./global.scss";
 
 const Home = () => {
-  const [activeSection, setActiveSection] = useState("home"); // Manage active section
-  const sectionsRef = useRef({}); // Store references to all sections
-
-
+  const [activeSection, setActiveSection] = useState("home");
+  const [timing, setTiming] = useState(true);
+  const sectionsRef = useRef({});
+  setTimeout(() => {
+    setTiming(false);
+  }, 2000);
 
   const isSectionVisible = (sectionId) => activeSection === sectionId;
   const handleSectionChange = (section) => {
@@ -22,8 +24,16 @@ const Home = () => {
 
   return (
     <div className="bg-[#fff]">
-      <div className="absolute">
-        <Fixedlayout onSectionChange={handleSectionChange} /> 
+      {timing && (
+        <div className="flex absolute z-[99]">
+          <div className="h-screen w-[50vw] bg-black z-50 animate-left"></div>
+          <div className="h-screen w-[50vw] bg-black z-50 animate-right"></div>
+          <div className="h-[70vh] w-[5px] bg-gray-50 absolute z-100 animate-top"></div>
+        </div>
+      )}
+
+      <div className="absolute z-10">
+        <Fixedlayout onSectionChange={handleSectionChange} />
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">
         <div className="flex justify-between flex-row-reverse bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
