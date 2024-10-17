@@ -56,7 +56,7 @@ function Fixedlayout({ onSectionChange }) {
         <div
           className={`bg-transparent w-fit h-[60px] pt-[5px] pb-[20px] mt-2 rounded-full max-lg:hidden text-[#4c4c4c] z-40`}
         >
-          <nav className="flex justify-center items-center space-x-0 font-serif font-semibold mx-3 p-3 rounded-full bg-opacity-10">
+          <nav className="flex justify-center items-center space-x-0 saira-condensed-semibold font-semibold mx-3 p-3 rounded-full bg-opacity-10">
             <div
               onClick={() => handleNavClick("home")}
               className={`group bg-[#fff] relative ${activeScreen === "home" ? "text-[#fff]" : "text-[#4d4d4d]"
@@ -141,7 +141,7 @@ function Fixedlayout({ onSectionChange }) {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-[#fff] bg-opacity-90 z-40 flex flex-col items-center justify-center">
-          <nav className="flex flex-col space-y-4 text-lg font-serif font-semibold text-[#4c4c4c]">
+          <nav className="flex flex-col space-y-4 text-lg saira-condensed-regular font-semibold text-[#4c4c4c]">
             <Link
               to="home"
               className="cursor-pointer hover:scale-110"

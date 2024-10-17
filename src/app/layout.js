@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     
     <html lang="en">
-      <body className='font-serif'>{children}</body>
+      <body className='saira-condensed-regular'>{children}</body>
     </html>
   )
 }

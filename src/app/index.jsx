@@ -32,7 +32,7 @@ const Home = () => {
           : "hidden"
       } `}
     >
-      <nav className="flex justify-between items-center text-black font-serif font-semibold mx-3">
+      <nav className="flex justify-between items-center text-black saira-condensed-regular font-semibold mx-3">
         <ScrollLink to="home" smooth={true} duration={500}>
           Home
         </ScrollLink>
