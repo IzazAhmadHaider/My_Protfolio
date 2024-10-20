@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Image from "next/image";
 import Fixedlayout from "./components/Fixedlayout";
 import "./global.scss";
+import CursorFollower from "./components/Cursor";
 
 const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -33,6 +34,7 @@ const Home = () => {
       )}
 
       <div className="absolute z-10">
+        <CursorFollower/>
         <Fixedlayout onSectionChange={handleSectionChange} />
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">

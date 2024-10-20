@@ -99,7 +99,7 @@ function Home1({onSectionChange}) {
               <span className="flex z-10">
                 {" "}
                 <IconPhoneCall />
-                &nbsp;Contact Me
+                &nbsp;Get In Touch
               </span>
             </button>
 
