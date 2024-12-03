@@ -2,13 +2,10 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandX,
   IconMenu2, // This is the hamburger icon from Tabler Icons
   IconX, // Close icon for toggling the menu
 } from "@tabler/icons-react";
+import SocialLinks from "./SocialLinks";
 
 function Fixedlayout({ onSectionChange }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,20 +15,6 @@ function Fixedlayout({ onSectionChange }) {
     onSectionChange(section);
     setActiveScreen(section);
     setMenuOpen(false);
-  };
-
-  const redirectToInstagram = () => {
-    window.location.href = "https://www.instagram.com/izazcodes/";
-  };
-  const redirectToTwitter = () => {
-    window.location.href = "https://twitter.com/IzazAhm99546481";
-  };
-  const redirectToFacebook = () => {
-    window.location.href =
-      "https://www.facebook.com/profile.php?id=100080270784104";
-  };
-  const redirectToLinkdin = () => {
-    window.location.href = "https://www.linkedin.com/in/izaz-ahmad-035a721a3/";
   };
 
   return (
@@ -192,31 +175,8 @@ function Fixedlayout({ onSectionChange }) {
       )}
 
       {/* Social Media Icons */}
-      <div className="flex fixed bottom-4 right-4 pr-3 space-x-2 max-lg:hidden">
-        <IconBrandInstagram
-          onClick={redirectToInstagram}
-          color="#4c4c4c"
-          size={20}
-          className="hover:scale-110 cursor-pointer"
-        />
-        <IconBrandFacebook
-          onClick={redirectToFacebook}
-          color="#4c4c4c"
-          size={20}
-          className="hover:scale-110 cursor-pointer"
-        />
-        <IconBrandLinkedin
-          onClick={redirectToLinkdin}
-          color="#4c4c4c"
-          size={20}
-          className="hover:scale-110 cursor-pointer"
-        />
-        <IconBrandX
-          onClick={redirectToTwitter}
-          color="#4c4c4c"
-          size={20}
-          className="hover:scale-110 cursor-pointer"
-        />
+      <div className="flex fixed bottom-4 right-4 pr-3 max-lg:hidden">
+        <SocialLinks/>
       </div>
     </div>
   );

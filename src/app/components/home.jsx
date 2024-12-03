@@ -1,14 +1,8 @@
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  IconBrandFacebook,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandX,
-} from "@tabler/icons-react";
+import SocialLinks from "./SocialLinks";
 
-function Home1({onSectionChange}) {
+function Home1({ setActiveSection }) {
   const [text, setText] = useState("");
   const fullText = "rontend Web Developer | ReactJs";
   useEffect(() => {
@@ -25,21 +19,8 @@ function Home1({onSectionChange}) {
       clearInterval(intervalId);
     };
   }, []);
-  const redirectToInstagram = () => {
-    window.location.href = "https://www.instagram.com/izazcodes/";
-  };
-  const redirectToTwitter = () => {
-    window.location.href = "https://twitter.com/IzazAhm99546481";
-  };
-  const redirectToFacebook = () => {
-    window.location.href =
-      "https://www.facebook.com/profile.php?id=100080270784104";
-  };
-  const redirectToLinkdin = () => {
-    window.location.href = "https://www.linkedin.com/in/izaz-ahmad-035a721a3/";
-  };
   const handleNavClick = (section) => {
-    onSectionChange(section);
+    setActiveSection(section);
   };
 
   return (
@@ -63,31 +44,8 @@ function Home1({onSectionChange}) {
             </div>
           </div>
 
-          <div className="flex mt-2 space-x-2 lg:hidden">
-            <IconBrandInstagram
-              onClick={redirectToInstagram}
-              color="#4c4c4c"
-              size={20}
-              className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandFacebook
-              onClick={redirectToFacebook}
-              color="#4c4c4c"
-              size={20}
-              className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandLinkedin
-              onClick={redirectToLinkdin}
-              color="#4c4c4c"
-              size={20}
-              className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandX
-              onClick={redirectToTwitter}
-              color="#4c4c4c"
-              size={20}
-              className="hover:scale-110 cursor-pointer"
-            />
+          <div className=" mt-2 lg:hidden">
+            <SocialLinks />
           </div>
 
           <div className="flex justify-start items-center space-x-4 w-[21rem] mt-5">

@@ -47,7 +47,7 @@ const Home = () => {
               }`}
               id="home"
             >
-              <Home1 />
+              <Home1 setActiveSection={setActiveSection} />
             </section>
           )}
           {isSectionVisible("skills") && (
