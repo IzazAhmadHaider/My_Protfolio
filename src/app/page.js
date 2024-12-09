@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
+import { Analytics } from '@vercel/analytics/next';
 import Home1 from "./components/home";
 import Skills1 from "./components/skills";
 import Project from "./components/project";
@@ -36,6 +37,8 @@ const Home = () => {
       <div className="absolute z-10">
         <CursorFollower/>
         <Fixedlayout onSectionChange={handleSectionChange} />
+        <Analytics />
+        
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">
         <div className="flex justify-between flex-row-reverse bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">

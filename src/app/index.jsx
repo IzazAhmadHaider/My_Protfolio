@@ -1,6 +1,7 @@
 "use client";
 // Navbar.jsx
 import React, { useEffect, useState } from "react";
+import { Analytics } from '@vercel/analytics/next';
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 
 const Home = () => {
