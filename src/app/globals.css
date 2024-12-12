@@ -264,3 +264,14 @@ body {
   animation-delay: 1s; /* Start after the line animation */
   z-index: 50; /* Lower z-index for black panels */
 }
+#progress .bg {
+  stroke-width: 4;
+  fill: "#903fff";
+}
+
+#progress .indicator {
+  stroke-width: 4;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  fill: '#903fff';
+}
