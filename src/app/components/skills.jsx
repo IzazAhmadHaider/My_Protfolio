@@ -84,7 +84,7 @@ export default function SkillsPage() {
           cy="50"
           r="30"
           pathLength="1"
-          className="stroke-[#903fff] stroke-[4px] fill-none"
+          className="stroke-[#4d4d4d] stroke-[4px] fill-none"
           style={{
             pathLength: scrollXProgress,
             transformOrigin: "center",
