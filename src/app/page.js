@@ -15,9 +15,9 @@ const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [timing, setTiming] = useState(true);
   const sections = ["home", "skills", "projects", "experience", "contacts"];
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // Start at the first section
-  const [scrolling, setScrolling] = useState(false);
-  const scrollingRef = useRef(false); // Track the scroll state
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
+  const scrollingRef = useRef(false); 
+  const touchStartY = useRef(0);
   const sectionsRef = useRef({});
   setTimeout(() => {
     setTiming(false);
@@ -28,37 +28,66 @@ const Home = () => {
     setActiveSection(section);
   };
 
-  const handleScroll = (event) => {
+  const handleWheelScroll = (event) => {
     if (!scrollingRef.current) {
-      scrollingRef.current = true; // Lock scrolling
+      scrollingRef.current = true;
 
       setCurrentSectionIndex((prevIndex) => {
         let newIndex = prevIndex;
-
         if (event.deltaY > 0 && prevIndex < sections.length - 1) {
-          console.log("Times ----------------");
-          newIndex++; // Scroll down (next section)
+          newIndex++;
         } else if (event.deltaY < 0 && prevIndex > 0) {
-          newIndex--; // Scroll up (previous section)
+          newIndex--;
         }
 
         if (newIndex !== prevIndex) {
-          setActiveSection(sections[newIndex]); // Update the active section
+          setActiveSection(sections[newIndex]);
         }
 
-        return newIndex; // Return the new index
+        return newIndex;
       });
 
-      setTimeout(() => {
-        scrollingRef.current = false; // Unlock scrolling
-      },1000); // Delay to control scroll rate
+      setTimeout(() => (scrollingRef.current = false), 1500);
+    }
+  };
+
+  const handleTouchStart = (event) => {
+    touchStartY.current = event.touches[0].clientY;
+  };
+
+  const handleTouchMove = (event) => {
+    if (!scrollingRef.current) {
+      const touchEndY = event.touches[0].clientY;
+      scrollingRef.current = true;
+
+      setCurrentSectionIndex((prevIndex) => {
+        let newIndex = prevIndex;
+        if (touchStartY.current - touchEndY > 50 && prevIndex < sections.length - 1) {
+          newIndex++;
+        } else if (touchEndY - touchStartY.current > 50 && prevIndex > 0) {
+          newIndex--;
+        }
+
+        if (newIndex !== prevIndex) {
+          setActiveSection(sections[newIndex]);
+        }
+
+        return newIndex;
+      });
+
+      setTimeout(() => (scrollingRef.current = false), 300);
     }
   };
 
   useEffect(() => {
-    window.addEventListener("wheel", handleScroll); // Attach event listener on mount
+    window.addEventListener("wheel", handleWheelScroll);
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+
     return () => {
-      window.removeEventListener("wheel", handleScroll); // Cleanup on unmount
+      window.removeEventListener("wheel", handleWheelScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
   
@@ -77,7 +106,7 @@ const Home = () => {
 
       <div className="absolute z-10">
         <CursorFollower />
-        <Fixedlayout onSectionChange={handleSectionChange} />
+        <Fixedlayout onSectionChange={handleSectionChange} activeSectionprop={activeSection} />
         <Analytics />
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">

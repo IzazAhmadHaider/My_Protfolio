@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import {
   IconMenu2, // This is the hamburger icon from Tabler Icons
@@ -7,7 +7,7 @@ import {
 } from "@tabler/icons-react";
 import SocialLinks from "./SocialLinks";
 
-function Fixedlayout({ onSectionChange }) {
+function Fixedlayout({ onSectionChange , activeSectionprop }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeScreen, setActiveScreen] = useState('home');
 
@@ -16,6 +16,10 @@ function Fixedlayout({ onSectionChange }) {
     setActiveScreen(section);
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    setActiveScreen(activeSectionprop);
+  },[activeSectionprop]);
 
   return (
     <div className="h-auto">
