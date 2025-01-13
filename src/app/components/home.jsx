@@ -1,10 +1,12 @@
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
 import SocialLinks from "./SocialLinks";
+import { useRouter } from "next/router";
 
 function Home1({ setActiveSection }) {
   const [text, setText] = useState("");
   const fullText = "rontend Web Developer | ReactJs";
+
   useEffect(() => {
     let currentIndex = 0;
     const intervalId = setInterval(() => {

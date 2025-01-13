@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 import Home1 from "./components/home";
 import Skills1 from "./components/skills";
 import Project from "./components/project";
@@ -14,6 +14,10 @@ import CursorFollower from "./components/Cursor";
 const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [timing, setTiming] = useState(true);
+  const sections = ["home", "skills", "projects", "experience", "contacts"];
+  const [currentSectionIndex, setCurrentSectionIndex] = useState(0); // Start at the first section
+  const [scrolling, setScrolling] = useState(false);
+  const scrollingRef = useRef(false); // Track the scroll state
   const sectionsRef = useRef({});
   setTimeout(() => {
     setTiming(false);
@@ -23,6 +27,43 @@ const Home = () => {
   const handleSectionChange = (section) => {
     setActiveSection(section);
   };
+
+  const handleScroll = (event) => {
+    if (!scrollingRef.current) {
+      scrollingRef.current = true; // Lock scrolling
+
+      setCurrentSectionIndex((prevIndex) => {
+        let newIndex = prevIndex;
+
+        if (event.deltaY > 0 && prevIndex < sections.length - 1) {
+          console.log("Times ----------------");
+          newIndex++; // Scroll down (next section)
+        } else if (event.deltaY < 0 && prevIndex > 0) {
+          newIndex--; // Scroll up (previous section)
+        }
+
+        if (newIndex !== prevIndex) {
+          setActiveSection(sections[newIndex]); // Update the active section
+        }
+
+        return newIndex; // Return the new index
+      });
+
+      setTimeout(() => {
+        scrollingRef.current = false; // Unlock scrolling
+      },1000); // Delay to control scroll rate
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("wheel", handleScroll); // Attach event listener on mount
+    return () => {
+      window.removeEventListener("wheel", handleScroll); // Cleanup on unmount
+    };
+  }, []);
+  
+  
+  
 
   return (
     <div className="bg-[#fff]">
@@ -35,10 +76,9 @@ const Home = () => {
       )}
 
       <div className="absolute z-10">
-        <CursorFollower/>
+        <CursorFollower />
         <Fixedlayout onSectionChange={handleSectionChange} />
         <Analytics />
-        
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">
         <div className="flex justify-between flex-row-reverse bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
