@@ -50,20 +50,20 @@ const experiences = [
 
 function Experience() {
   return (
-    <div className="flex items-center justify-center bg-[#f9f9f9] h-[100%] py-4">
-      <div className="max-w-3xl w-full mx-auto h-full">
+    <div className="flex items-center h-full justify-center bg-[#f9f9f9] py-4">
+      <div className="max-w-4xl w-full mx-auto ">
         {/* Sticky title section */}
-        <div className="sticky top-0 bg-[#f9f9f9] z-10 pb-4">
-          <h1 className="text-4xl font-bold text-[#4c4c4c] text-center">My Experience</h1>
+        <div className="top-0 bg-[#f9f9f9] z-10 pb-4">
+          <h1 className="text-4xl font-bold text-[#4c4c4c] text-center">The Teams I've Been a Part Of</h1>
         </div>
 
         {/* Scrollable content */}
         <div className="h-[calc(100%-4rem)] overflow-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex gap-6">
             {experiences.map((experience, index) => (
               <div 
                 key={index} 
-                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                className="bg-white min-w-[280px] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
               >
                 <h2 className="text-lg font-semibold text-center bg-[#4c4c4c] min-h-[13%] m-auto text-white rounded-lg px-4 py-2 mx-auto mb-4">
                   {experience.role}

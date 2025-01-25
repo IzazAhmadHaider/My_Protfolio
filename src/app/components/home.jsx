@@ -1,7 +1,11 @@
+"use client"
 import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
 import React, { useState, useEffect } from "react";
 import SocialLinks from "./SocialLinks";
 import { useRouter } from "next/router";
+import Image from "next/image";
+import BlurText from "./UI/BlurText";
+
 
 function Home1({ setActiveSection }) {
   const [text, setText] = useState("");
@@ -25,18 +29,47 @@ function Home1({ setActiveSection }) {
     setActiveSection(section);
   };
 
+  
+const handleAnimationComplete = () => {
+  console.log('Animation completed!');
+};
+
   return (
     <>
-      <div className="flex items-center justify-between min-h-[80%] max-lg:justify-center max-lg:items-center">
-        <div className=" pl-28 max-lg:pl-0  font">
-          <p className="text-4xl text-[#4c4c4c] ">Hello!</p>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <h3 className="animate-charcter">I'm Izaz Ahmad</h3>
-              </div>
-            </div>
+      <div className="flex items-center justify-between min-h-screen max-lg:justify-center max-lg:items-center">
+        <div className="z-50 w-[30%]  max-md:hidden">
+          <div
+            className="flex-grow w-full h-full glitch bg-transparent border rounded-3xl flex items-center justify-center"
+            style={{
+              backgroundImage: "url(/mypic.png)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <Image
+              className="grayscale"
+              src="/mypic.png"
+              width={300}
+              height={1000}
+              alt="My Picture"
+            />
+
+            <div className="channel r"></div>
+            <div className="channel g"></div>
+            <div className="channel b"></div>
           </div>
+        </div>
+
+        <div className=" pl-28 max-lg:pl-0  font">
+          <div className="text-4xl text-[#4c4c4c] "><BlurText
+            text="Hello, I'm Izaz Ahmad"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            onAnimationComplete={handleAnimationComplete}
+            className="text-2xl"
+          /></div>
+      
           <div className="flex space-x-1">
             <p className="text-[#4c4c4c]">Creative Frontend Web Developer</p>
             <div className="text-container">

@@ -14,10 +14,6 @@ import CursorFollower from "./components/Cursor";
 const Home = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [timing, setTiming] = useState(true);
-  const sections = ["home", "skills", "projects", "experience", "contacts"];
-  const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const scrollingRef = useRef(false); 
-  const touchStartY = useRef(0);
   const sectionsRef = useRef({});
   setTimeout(() => {
     setTiming(false);
@@ -26,73 +22,11 @@ const Home = () => {
   const isSectionVisible = (sectionId) => activeSection === sectionId;
   const handleSectionChange = (section) => {
     setActiveSection(section);
-  };
-
-  const handleWheelScroll = (event) => {
-    if (!scrollingRef.current) {
-      scrollingRef.current = true;
-
-      setCurrentSectionIndex((prevIndex) => {
-        let newIndex = prevIndex;
-        if (event.deltaY > 0 && prevIndex < sections.length - 1) {
-          newIndex++;
-        } else if (event.deltaY < 0 && prevIndex > 0) {
-          newIndex--;
-        }
-
-        if (newIndex !== prevIndex) {
-          setActiveSection(sections[newIndex]);
-        }
-
-        return newIndex;
-      });
-
-      setTimeout(() => (scrollingRef.current = false), 1500);
+    const sectionElement = sectionsRef.current[section];
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  const handleTouchStart = (event) => {
-    touchStartY.current = event.touches[0].clientY;
-  };
-
-  const handleTouchMove = (event) => {
-    if (!scrollingRef.current) {
-      const touchEndY = event.touches[0].clientY;
-      scrollingRef.current = true;
-
-      setCurrentSectionIndex((prevIndex) => {
-        let newIndex = prevIndex;
-        if (touchStartY.current - touchEndY > 50 && prevIndex < sections.length - 1) {
-          newIndex++;
-        } else if (touchEndY - touchStartY.current > 50 && prevIndex > 0) {
-          newIndex--;
-        }
-
-        if (newIndex !== prevIndex) {
-          setActiveSection(sections[newIndex]);
-        }
-
-        return newIndex;
-      });
-
-      setTimeout(() => (scrollingRef.current = false), 300);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("wheel", handleWheelScroll);
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
-
-    return () => {
-      window.removeEventListener("wheel", handleWheelScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
-  }, []);
-  
-  
-  
 
   return (
     <div className="bg-[#fff]">
@@ -106,88 +40,59 @@ const Home = () => {
 
       <div className="absolute z-10">
         <CursorFollower />
-        <Fixedlayout onSectionChange={handleSectionChange} activeSectionprop={activeSection} />
+        <Fixedlayout
+          onSectionChange={handleSectionChange}
+          activeSectionprop={activeSection}
+        />
         <Analytics />
       </div>
       <div className="items-center mx-auto flex justify-center h-screen">
-        <div className="flex justify-between flex-row-reverse bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
-          {isSectionVisible("home") && (
-            <section
-              ref={(el) => (sectionsRef.current.home = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-                isSectionVisible("home") && "flipper "
-              }`}
-              id="home"
-            >
-              <Home1 setActiveSection={setActiveSection} />
-            </section>
-          )}
-          {isSectionVisible("skills") && (
-            <section
-              ref={(el) => (sectionsRef.current.skills = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-                isSectionVisible("skills") && "flipper "
-              }`}
-              id="skills"
-            >
-              <Skills1 />
-            </section>
-          )}
-          {isSectionVisible("projects") && (
-            <section
-              ref={(el) => (sectionsRef.current.projects = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-                isSectionVisible("projects") && "flipper "
-              }`}
-              id="projects"
-            >
-              <Project />
-            </section>
-          )}
-          {isSectionVisible("experience") && (
-            <section
-              ref={(el) => (sectionsRef.current.experience = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%]  max-md:w-full ${
-                isSectionVisible("experience") && "flipper "
-              }`}
-              id="experience"
-            >
-              <Experience />
-            </section>
-          )}
-          {isSectionVisible("contacts") && (
-            <section
-              ref={(el) => (sectionsRef.current.contacts = el)}
-              className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-                isSectionVisible("contacts") && "flipper "
-              }`}
-              id="contacts"
-            >
-              <Contact />
-            </section>
-          )}
-          <div className="z-50 w-[30%] h-[80%] max-md:hidden">
-            <div
-              className="flex-grow w-full h-full glitch bg-transparent border rounded-3xl flex items-center justify-center"
-              style={{
-                backgroundImage: "url(/mypic.png)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <Image
-                className="grayscale"
-                src="/mypic.png"
-                width={300}
-                height={300}
-                alt="My Picture"
-              />
-
-              <div className="channel r"></div>
-              <div className="channel g"></div>
-              <div className="channel b"></div>
-            </div>
-          </div>
+        <div className="flex justify-between flex-col fixed overflow-y-scroll bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
+          <section
+            ref={(el) => (sectionsRef.current.home = el)}
+            className={`h-[82vh] flex justify-center items-center transition-all w-[70%] max-md:w-full ${
+              isSectionVisible("home") && "flipper "
+            }`}
+            id="home"
+          >
+            <Home1 setActiveSection={setActiveSection} />
+          </section>
+          <section
+            ref={(el) => (sectionsRef.current.skills = el)}
+            className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
+              isSectionVisible("skills") && "flipper "
+            }`}
+            id="skills"
+          >
+            <Skills1 />
+          </section>
+          <section
+            ref={(el) => (sectionsRef.current.projects = el)}
+            className={`h-screen flex justify-center items-center transition-all w-[70%] max-md:w-full ${
+              isSectionVisible("projects") && "flipper "
+            }`}
+            id="projects"
+          >
+            <Project />
+          </section>
+          <section
+            ref={(el) => (sectionsRef.current.experience = el)}
+            className={`h-[130vh] flex justify-center items-center transition-all w-[70%]  max-md:w-full ${
+              isSectionVisible("experience") && "flipper "
+            }`}
+            id="experience"
+          >
+            <Experience />
+          </section>
+          <section
+            ref={(el) => (sectionsRef.current.contacts = el)}
+            className={`min-h-[120vh] flex justify-center items-center transition-all w-[70%] max-md:w-full ${
+              isSectionVisible("contacts") && "flipper "
+            }`}
+            id="contacts"
+          >
+            <Contact />
+          </section>
         </div>
       </div>
     </div>

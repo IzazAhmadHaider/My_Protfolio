@@ -1,6 +1,17 @@
 import "../globals.css";
 import { useRef } from "react";
 import { motion, useScroll } from "framer-motion";
+import LogoWall from './UI/LogoWall';
+import astro from "./assets/astro.svg";
+import css from "./assets/css.svg";
+import html from "./assets/html.svg";
+import javascript from "./assets/javascript.svg";
+import nextjss from "./assets/nextjs.svg";
+import react from "./assets/react.svg";
+import vercel from "./assets/vercel.svg";
+import firebase from "./assets/firebase-1.svg";
+import RNfirebase from "./assets/react-native-firebase-1.svg";
+import RN from "./assets/react-native-app-icon.svg";
 
 function SkillCard({ title, description, image }) {
   return (
@@ -60,41 +71,25 @@ export default function SkillsPage() {
     },
   };
 
+  const logoImgs = [
+    { imgUrl: astro, altText: "React Bits Logo" },
+    { imgUrl: css, altText: "React Bits Logo" },
+    { imgUrl: html, altText: "React Bits Logo" },
+    { imgUrl: javascript, altText: "React Bits Logo" },
+    { imgUrl: nextjss, altText: "React Bits Logo" },
+    { imgUrl: react, altText: "React Bits Logo" },
+    { imgUrl: vercel, altText: "React Bits Logo" },
+    { imgUrl: firebase, altText: "React Bits Logo" },
+    { imgUrl: RNfirebase, altText: "React Bits Logo" },
+    { imgUrl: RN, altText: "React Bits Logo" }
+  ];
   const ref = useRef(null);
   const { scrollXProgress } = useScroll({ container: ref });
 
   return (
-    <div className="overflow-auto h-full p-4">
-      <svg
-        id="progress"
-        width="100"
-        height="100"
-        viewBox="0 0 100 100"
-        className="fixed bottom-4 right-4"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="30"
-          pathLength="1"
-          className="stroke-gray-300 stroke-[6px] fill-none"
-        />
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="30"
-          pathLength="1"
-          className="stroke-[#4d4d4d] stroke-[4px] fill-none"
-          style={{
-            pathLength: scrollXProgress,
-            transformOrigin: "center",
-          }}
-        />
-      </svg>
-
-
-      <h1 className="text-2xl text-[#4c4c4c] font-bold text-center mb-4">Skills</h1>
-      <div
+    <div className="overflow-auto p-4">
+      <h1 className="text-2xl text-[#4c4c4c] font-bold text-center mb-4">I'M SKILLED IN</h1>
+      {/* <div
         ref={ref}
         className="flex space-x-4 h-full overflow-x-scroll snap-x snap-mandatory"
       >
@@ -103,6 +98,20 @@ export default function SkillsPage() {
             <SkillCard {...skill} />
           </div>
         ))}
+      </div> */}
+
+
+
+      <div style={{ height: '200px', width: '100%', position: 'relative' }}>
+        <LogoWall
+          items={logoImgs}
+          direction='horizontal'
+          pauseOnHover={true}
+          size='clamp(8rem, 1rem + 20vmin, 25rem)'
+          duration='60s'
+          bgColor='#f9fafb'
+          bgAccentColor='#4d4d4d'
+        />
       </div>
     </div>
   );

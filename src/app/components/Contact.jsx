@@ -55,15 +55,15 @@ function Contact() {
   };
 
   return (
-    <div className="h-[100%] flex justify-center items-center py-6">
+    <div className="h-full flex justify-center items-center py-6">
       <div className="max-w-5xl w-full mx-auto h-full overflow-hidden">
-        <div className="container mx-auto px-4 py-8 shadow-2xl rounded-lg bg-[#f0f0f0] max-w-4xl h-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+        <div className="container mx-auto px-4 py-8 shadow-2xl rounded-lg  max-w-4xl h-full">
+        <div className="text-center text-4xl md:text-5xl font-bold uppercase text-[#333] mb-8">
+        Reach Out to Me
+              </div>
             {/* Left Column - Contact Form */}
             <div className="overflow-auto h-full">
-              <div className="text-center text-4xl md:text-5xl font-bold text-[#333] mb-8">
-                Contact Me
-              </div>
+             
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
@@ -119,6 +119,7 @@ function Contact() {
                     aria-label="Enter your message"
                   ></textarea>
                 </div>
+               
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_SITE_KEY}
                   ref={recaptcha}
@@ -131,29 +132,11 @@ function Contact() {
                   Send Message
                 </button>
               </form>
+
             </div>
             <Toaster />
 
-            {/* Right Column - Contact Information */}
-            <div className="shadow-lg w-full h-full bg-[#333] rounded-xl p-6 text-[#f0f0f0] overflow-auto">
-              <h2 className="text-2xl font-semibold text-center mb-6">
-                Contact Information
-              </h2>
-              <ul className="space-y-4">
-                <li>
-                  <span className="font-semibold">Address:</span> Swabi, KPK,
-                  Pakistan
-                </li>
-                <li>
-                  <span className="font-semibold">Phone:</span> +923098967345
-                </li>
-                <li>
-                  <span className="font-semibold">Email:</span>{" "}
-                  izazahmadhaider0@gmail.com
-                </li>
-              </ul>
-            </div>
-          </div>
+            
         </div>
       </div>
     </div>
