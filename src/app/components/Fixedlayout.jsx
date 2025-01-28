@@ -24,7 +24,7 @@ function Fixedlayout({ onSectionChange , activeSectionprop }) {
   return (
     <div className="h-auto">
       {/* Navbar Container */}
-      <div className="bg-transparent flex items-center justify-between w-[100%] fixed z-50">
+      <div className="bg-[#ffffffa8] flex items-center justify-between w-[100%] fixed z-50">
         {/* Logo Section */}
         <div className="flex items-center pt-3 pl-3">
           <div

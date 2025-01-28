@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Image from "next/image";
 import Fixedlayout from "./components/Fixedlayout";
 import "./global.scss";
+import "./globals.css";
 import CursorFollower from "./components/Cursor";
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
   };
 
   return (
+    <>
     <div className="bg-[#fff]">
       {timing && (
         <div className="flex absolute z-[99]">
@@ -46,56 +48,44 @@ const Home = () => {
         />
         <Analytics />
       </div>
-      <div className="items-center mx-auto flex justify-center h-screen">
-        <div className="flex justify-between flex-col fixed overflow-y-scroll bg-gray-50 w-[90vw] items-center mx-auto h-[80vh] rounded-3xl shadow-sm">
-          <section
-            ref={(el) => (sectionsRef.current.home = el)}
-            className={`h-[82vh] flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-              isSectionVisible("home") && "flipper "
-            }`}
-            id="home"
-          >
-            <Home1 setActiveSection={setActiveSection} />
-          </section>
-          <section
-            ref={(el) => (sectionsRef.current.skills = el)}
-            className={`h-full flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-              isSectionVisible("skills") && "flipper "
-            }`}
-            id="skills"
-          >
-            <Skills1 />
-          </section>
-          <section
-            ref={(el) => (sectionsRef.current.projects = el)}
-            className={`h-screen flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-              isSectionVisible("projects") && "flipper "
-            }`}
-            id="projects"
-          >
-            <Project />
-          </section>
-          <section
-            ref={(el) => (sectionsRef.current.experience = el)}
-            className={`h-[130vh] flex justify-center items-center transition-all w-[70%]  max-md:w-full ${
-              isSectionVisible("experience") && "flipper "
-            }`}
-            id="experience"
-          >
-            <Experience />
-          </section>
-          <section
-            ref={(el) => (sectionsRef.current.contacts = el)}
-            className={`min-h-[120vh] flex justify-center items-center transition-all w-[70%] max-md:w-full ${
-              isSectionVisible("contacts") && "flipper "
-            }`}
-            id="contacts"
-          >
-            <Contact />
-          </section>
-        </div>
+
+      <div
+        ref={(el) => (sectionsRef.current.home = el)}
+        className={`blockEle flex justify-center items-center transition-all  max-md:w-full `}
+        id="home"
+      >
+        <Home1 setActiveSection={setActiveSection} />
+      </div>
+      <div
+        ref={(el) => (sectionsRef.current.skills = el)}
+        className={`blockEle flex justify-center items-center transition-all  max-md:w-full `}
+        id="skills"
+      >
+        <Skills1 />
+      </div>
+      <div
+        ref={(el) => (sectionsRef.current.projects = el)}
+        className={`blockEle flex justify-center items-center transition-all  max-md:w-full `}
+        id="projects"
+      >
+        <Project />
+      </div>
+      <div
+        ref={(el) => (sectionsRef.current.experience = el)}
+        className={`blockEle flex justify-center items-center transition-all   max-md:w-full `}
+        id="experience"
+      >
+        <Experience />
+      </div>
+      <div
+        ref={(el) => (sectionsRef.current.contacts = el)}
+        className={`blockEle flex justify-center items-center transition-all  max-md:w-full `}
+        id="contacts"
+      >
+        <Contact />
       </div>
     </div>
+    </>
   );
 };
 

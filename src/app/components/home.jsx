@@ -61,16 +61,18 @@ const handleAnimationComplete = () => {
         </div>
 
         <div className=" pl-28 max-lg:pl-0  font">
-          <div className="text-4xl text-[#4c4c4c] "><BlurText
+          <div className="text-4xl text-[#4c4c4c] ">
+            <BlurText
             text="Hello, I'm Izaz Ahmad"
-            delay={150}
+            delay={0}
             animateBy="words"
             direction="top"
             onAnimationComplete={handleAnimationComplete}
             className="text-2xl"
-          /></div>
+          />
+          </div>
       
-          <div className="flex space-x-1">
+          <div className="flex space-x-1 max-md:text-md">
             <p className="text-[#4c4c4c]">Creative Frontend Web Developer</p>
             <div className="text-container">
               <h1 className="coder2">ReactJs</h1>

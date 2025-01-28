@@ -50,7 +50,7 @@ const experiences = [
 
 function Experience() {
   return (
-    <div className="flex items-center h-full justify-center bg-[#f9f9f9] py-4">
+    <div className="flex blockEle items-center justify-center bg-[#f9f9f9] py-4">
       <div className="max-w-4xl w-full mx-auto ">
         {/* Sticky title section */}
         <div className="top-0 bg-[#f9f9f9] z-10 pb-4">
@@ -58,12 +58,12 @@ function Experience() {
         </div>
 
         {/* Scrollable content */}
-        <div className="h-[calc(100%-4rem)] overflow-auto">
-          <div className="flex gap-6">
+        <div className="h-[calc(100%-4rem)]  overflow-auto">
+          <div className="flex  max-lg:flex-col  gap-6">
             {experiences.map((experience, index) => (
               <div 
                 key={index} 
-                className="bg-white min-w-[280px] p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                className="bg-white min-w-[280px] max-md:scale-95 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
               >
                 <h2 className="text-lg font-semibold text-center bg-[#4c4c4c] min-h-[13%] m-auto text-white rounded-lg px-4 py-2 mx-auto mb-4">
                   {experience.role}
