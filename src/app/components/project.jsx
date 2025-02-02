@@ -38,7 +38,7 @@ const MyComponent = () => {
           <h2 className="text-3xl text-[#4c4c4c] font-bold text-center mb-12 uppercase">
             Projects i have worked on
           </h2>
-          <div className="flex flex-row max-lg:flex-col gap-2 w-screen ">
+          <div className="flex flex-row max-lg:flex-col gap-2 ">
             {projects.map((project, index) => (
               <SpotlightCard className="custom-spotlight-card w-[30vw] max-md:w-full  " spotlightColor="rgba(181, 254, 217)" >
                 <div className="p-0">
