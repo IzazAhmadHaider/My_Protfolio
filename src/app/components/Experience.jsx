@@ -1,86 +1,38 @@
-import React from 'react';
+import Card from "./UI/Card";
+import SectionHeading from "./UI/SectionHeading";
+import SectionShell from "./UI/SectionShell";
+import { experiences } from "../data/portfolioData";
 
-const experiences = [
-  {
-    role: 'Software Engineer at MetaFront LLP',
-    position: 'Full Stack Developer',
-    description: [
-      'Developed full-stack applications using Node.js for the backend and React for the frontend.',
-      'Managed database design and integration using MongoDB and ensured data integrity.',
-      'Optimized application performance and reduced server response time by 20%.',
-      'Worked closely with the product team to identify requirements and deliver features on time.',
-      'Implemented caching and other performance optimization techniques to enhance scalability.',
-    ],
-  },
-  {
-    role: 'Junior Software Engineer at MetaFront LLP',
-    position: 'Full Stack Developer',
-    description: [
-      'Developed full-stack applications using Node.js for the backend and React for the frontend.',
-      'Managed database design and integration using MongoDB and ensured data integrity.',
-      'Optimized application performance and reduced server response time by 20%.',
-      'Worked closely with the product team to identify requirements and deliver features on time.',
-      'Implemented caching and other performance optimization techniques to enhance scalability.',
-    ],
-  },
-
-  {
-    role: 'Associate Web Developer at MetaFront LLP',
-    position: 'React / Tailwind Developer',
-    description: [
-      'Led the development of multiple client-facing projects using React and Tailwind CSS.',
-      'Implemented dynamic, responsive web components to improve user interaction and experience.',
-      'Optimized web applications for better performance and cross-browser compatibility.',
-      'Collaborated with backend teams to integrate APIs and manage data handling in the frontend.',
-      'Ensured the applications followed best practices in security, scalability, and accessibility.',
-    ],
-  },
-  {
-    role: 'Intern At HiWIFI',
-    position: 'React / Web Developer',
-    description: [
-      'Developed and maintained web applications using JavaScript, React, and Tailwind.',
-      'Collaborated with senior developers to fix bugs and improve code efficiency.',
-      'Assisted in integrating RESTful APIs to fetch and display data on the frontend.',
-      'Participated in daily standups, contributing to agile development processes.',
-      'Worked on building responsive and accessible user interfaces across various devices.',
-    ],
-  },
-];
-
-function Experience() {
+export default function Experience() {
   return (
-    <div className="flex blockEle items-center justify-center bg-[#f9f9f9] py-4">
-      <div className="max-w-4xl w-full mx-auto ">
-        {/* Sticky title section */}
-        <div className="top-0 bg-[#f9f9f9] z-10 pb-4">
-          <h1 className="text-4xl font-bold text-[#4c4c4c] text-center">The Teams I've Been a Part Of</h1>
-        </div>
-
-        {/* Scrollable content */}
-        <div className="h-[calc(100%-4rem)]  overflow-auto">
-          <div className="flex  max-lg:flex-col  gap-6">
-            {experiences.map((experience, index) => (
-              <div 
-                key={index} 
-                className="bg-white min-w-[280px] max-md:scale-95 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
-              >
-                <h2 className="text-lg font-semibold text-center bg-[#4c4c4c] min-h-[13%] m-auto text-white rounded-lg px-4 py-2 mx-auto mb-4">
+    <SectionShell id="experience">
+      <SectionHeading
+        eyebrow="Career"
+        title="Experience"
+        description="Roles where I have delivered high-impact product and engineering outcomes."
+      />
+      <div className="space-y-4">
+        {experiences.map((experience) => (
+          <Card key={`${experience.company}-${experience.role}`}>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-50">
                   {experience.role}
-                </h2>
-                <p className="text-[#4c4c4c] text-center font-medium h-12">{experience.position}</p>
-                <ul className="list-disc list-inside text-[#4c4c4c] space-y-2 mt-4">
-                  {experience.description.map((desc, idx) => (
-                    <li key={idx}>{desc}</li>
-                  ))}
-                </ul>
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-300">{experience.company}</p>
               </div>
-            ))}
-          </div>
-        </div>
+              <span className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1 text-xs font-medium text-neutral-700 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
+                {experience.duration}
+              </span>
+            </div>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-neutral-700 dark:text-neutral-200">
+              {experience.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </Card>
+        ))}
       </div>
-    </div>
+    </SectionShell>
   );
 }
-
-export default Experience;

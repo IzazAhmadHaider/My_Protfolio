@@ -1,123 +1,59 @@
-"use client"
-import { IconDownload, IconPhoneCall } from "@tabler/icons-react";
-import React, { useState, useEffect } from "react";
-import SocialLinks from "./SocialLinks";
-import { useRouter } from "next/router";
 import Image from "next/image";
-import BlurText from "./UI/BlurText";
+import { IconArrowRight, IconDownload } from "@tabler/icons-react";
+import SocialLinks from "./SocialLinks";
+import SectionShell from "./UI/SectionShell";
+import { personalInfo } from "../data/portfolioData";
 
-
-function Home1({ setActiveSection }) {
-  const [text, setText] = useState("");
-  const fullText = "rontend Web Developer | ReactJs";
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const intervalId = setInterval(() => {
-      setText(fullText.slice(0, currentIndex));
-      currentIndex++;
-      if (currentIndex > fullText.length) {
-        clearInterval(intervalId);
-      }
-    }, 50);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
-  const handleNavClick = (section) => {
-    setActiveSection(section);
-  };
-
-  
-const handleAnimationComplete = () => {
-  console.log('Animation completed!');
-};
-
+export default function Home1({ onNavigate }) {
   return (
-    <>
-      <div className="flex items-center justify-between min-h-screen max-lg:justify-center max-lg:items-center">
-        <div className="z-50 w-[30%]  max-md:hidden">
-          <div
-            className="flex-grow w-full h-full glitch bg-transparent border rounded-3xl flex items-center justify-center"
-            style={{
-              backgroundImage: "url(/mypic.png)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <Image
-              className="grayscale"
-              src="/mypic.png"
-              width={300}
-              height={1000}
-              alt="My Picture"
-            />
+    <SectionShell id="home" className="pt-24 md:pt-28">
+      <div className="grid items-center gap-10 md:grid-cols-[1.15fr_0.85fr]">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">
+            Full Stack Engineer
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-neutral-900 md:text-6xl">
+            {personalInfo.name}
+          </h1>
+          <p className="mt-4 text-lg text-neutral-700 dark:text-neutral-200">{personalInfo.title}</p>
+          <p className="mt-6 max-w-2xl text-neutral-600 dark:text-neutral-300">
+            {personalInfo.summary}
+          </p>
 
-            <div className="channel r"></div>
-            <div className="channel g"></div>
-            <div className="channel b"></div>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={() => onNavigate("contacts")}
+              className="inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200"
+            >
+              Contact Me <IconArrowRight size={16} />
+            </button>
+            <a
+              href="/IZAZAHMAD.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-neutral-300 px-5 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-400 hover:bg-neutral-50 dark:border-neutral-700 dark:text-neutral-100 dark:hover:border-neutral-500 dark:hover:bg-neutral-900"
+            >
+              Download Resume <IconDownload size={16} />
+            </a>
           </div>
+
+          <SocialLinks className="mt-6" />
         </div>
 
-        <div className=" pl-28 max-lg:pl-0  font">
-          <div className="text-4xl text-[#4c4c4c] ">
-            <BlurText
-            text="Hello, I'm Izaz Ahmad"
-            delay={0}
-            animateBy="words"
-            direction="top"
-            onAnimationComplete={handleAnimationComplete}
-            className="text-2xl"
-          />
-          </div>
-      
-          <div className="flex space-x-1 max-md:text-md">
-            <p className="text-[#4c4c4c]">Creative Frontend Web Developer</p>
-            <div className="text-container">
-              <h1 className="coder2">ReactJs</h1>
-              <h1 className="coder3">NextJs</h1>
-              <h1 className="coder1">TailwindCSS</h1>
-            </div>
-          </div>
-
-          <div className=" mt-2 lg:hidden">
-            <SocialLinks />
-          </div>
-
-          <div className="flex justify-start items-center space-x-4 w-[21rem] mt-5">
-            <button
-              onClick={() => handleNavClick("contacts")}
-              className="group bg-[#4d4d4d] relative hover:text-[#4d4d4d] border text-white font-semibold py-2 px-2 rounded-xl flex"
-            >
-              <span className="w-0 group-hover:w-[102%] h-full bg-white border opacity-0 group-hover:opacity-100 absolute top-0 -left-[1px] transition-all origin-center duration-500 rounded-xl z-0"></span>
-              <span className="flex z-10">
-                {" "}
-                <IconPhoneCall />
-                &nbsp;Get In Touch
-              </span>
-            </button>
-
-            <a
-              href="https://drive.google.com/uc?export=download&id=1PPWsKxaSs2zBIqWiTeyBBZpH3ZZleQ0w
-"
-              download="izazahmadReactjs
-"
-            >
-              <button className="group bg-[#4d4d4d] relative hover:text-[#4d4d4d] border text-white font-semibold py-2 px-2 rounded-xl flex">
-                <span className="w-0 group-hover:w-[102%] h-full bg-white border opacity-0 group-hover:opacity-100 absolute top-0 -left-[1px] transition-all origin-center duration-500 rounded-xl z-0"></span>
-                <span className="flex z-10">
-                  {" "}
-                  <IconDownload />
-                  &nbsp;Download CV
-                </span>
-              </button>
-            </a>
+        <div className="mx-auto w-full max-w-sm">
+          <div className="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 p-3 dark:border-neutral-700 dark:bg-neutral-900">
+            <Image
+              src="/mypic.png"
+              width={640}
+              height={800}
+              alt="Portrait of Izaz Ahmad"
+              className="h-auto w-full rounded-2xl object-cover grayscale"
+              priority
+            />
           </div>
         </div>
       </div>
-    </>
+    </SectionShell>
   );
 }
-
-export default Home1;

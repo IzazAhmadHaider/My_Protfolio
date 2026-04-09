@@ -1,59 +1,33 @@
-import { IconBrandFacebook, IconBrandGithub, IconBrandX } from '@tabler/icons-react'
-import { IconBrandLinkedin } from '@tabler/icons-react'
-import { IconBrandInstagram } from '@tabler/icons-react'
-import React from 'react'
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconMail,
+} from "@tabler/icons-react";
+import { personalInfo } from "../data/portfolioData";
 
-function SocialLinks() {
-    const redirectToInstagram = () => {
-        window.location.href = "https://www.instagram.com/izazcodes/";
-      };
-      const redirectToTwitter = () => {
-        window.location.href = "https://twitter.com/IzazAhm99546481";
-      };
-      const redirectToFacebook = () => {
-        window.location.href =
-          "https://www.facebook.com/profile.php?id=100080270784104";
-      };
-      const redirectToGithub = () => {
-        window.location.href =
-          "https://github.com/IzazAhmadHaider";
-      };
-      const redirectToLinkdin = () => {
-        window.location.href = "https://www.linkedin.com/in/izaz-ahmad-035a721a3/";
-      };
-    return (
-        <div className='flex space-x-2'> 
-            <IconBrandInstagram
-            onClick={redirectToInstagram}
-            color="#4c4c4c"
-            size={20}
-            className="hover:scale-110 cursor-pointer"
-        />
-            <IconBrandFacebook
-                onClick={redirectToFacebook}
-                color="#4c4c4c"
-                size={20}
-                className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandGithub
-                onClick={redirectToGithub}
-                color="#4c4c4c"
-                size={20}
-                className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandLinkedin
-                onClick={redirectToLinkdin}
-                color="#4c4c4c"
-                size={20}
-                className="hover:scale-110 cursor-pointer"
-            />
-            <IconBrandX
-                onClick={redirectToTwitter}
-                color="#4c4c4c"
-                size={20}
-                className="hover:scale-110 cursor-pointer"
-            /></div>
-    )
+const links = [
+  { href: personalInfo.github, label: "GitHub", Icon: IconBrandGithub },
+  { href: personalInfo.linkedin, label: "LinkedIn", Icon: IconBrandLinkedin },
+  { href: "https://twitter.com/IzazAhm99546481", label: "X", Icon: IconBrandX },
+  { href: `mailto:${personalInfo.email}`, label: "Email", Icon: IconMail },
+];
+
+export default function SocialLinks({ className = "" }) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`}>
+      {links.map(({ href, label, Icon }) => (
+        <a
+          key={label}
+          href={href}
+          target={href.startsWith("http") ? "_blank" : undefined}
+          rel={href.startsWith("http") ? "noreferrer" : undefined}
+          aria-label={label}
+          className="rounded-full border border-neutral-200 p-2 text-neutral-700 transition hover:border-neutral-300 hover:text-neutral-900"
+        >
+          <Icon size={18} />
+        </a>
+      ))}
+    </div>
+  );
 }
-
-export default SocialLinks
