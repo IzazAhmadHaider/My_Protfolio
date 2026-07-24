@@ -7,6 +7,7 @@ import Home1 from "./components/home";
 import Skills1 from "./components/skills";
 import Project from "./components/project";
 import Experience from "./components/Experience";
+import Education from "./components/Education";
 import Contact from "./components/Contact";
 import { navSections } from "./data/portfolioData";
 
@@ -58,6 +59,9 @@ export default function Home() {
       </div>
       <div ref={(el) => (sectionsRef.current.experience = el)} id="experience">
         <Experience />
+      </div>
+      <div ref={(el) => (sectionsRef.current.education = el)} id="education">
+        <Education />
       </div>
       <div ref={(el) => (sectionsRef.current.contacts = el)} id="contacts">
         <Contact />

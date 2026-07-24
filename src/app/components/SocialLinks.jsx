@@ -9,7 +9,7 @@ import { personalInfo } from "../data/portfolioData";
 const links = [
   { href: personalInfo.github, label: "GitHub", Icon: IconBrandGithub },
   { href: personalInfo.linkedin, label: "LinkedIn", Icon: IconBrandLinkedin },
-  { href: "https://twitter.com/IzazAhm99546481", label: "X", Icon: IconBrandX },
+  { href: "https://x.com/IzazCodes", label: "X", Icon: IconBrandX },
   { href: `mailto:${personalInfo.email}`, label: "Email", Icon: IconMail },
 ];
 
