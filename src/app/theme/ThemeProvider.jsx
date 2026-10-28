@@ -22,7 +22,10 @@ export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    const stored = typeof window !== "undefined" ? window.localStorage.getItem(STORAGE_KEY) : null;
+    let stored = null;
+    try {
+      stored = window.localStorage.getItem(STORAGE_KEY);
+    } catch {}
     const initialTheme = stored === "dark" || stored === "light" ? stored : getSystemTheme();
     setTheme(initialTheme);
     applyTheme(initialTheme);
@@ -31,7 +34,9 @@ export default function ThemeProvider({ children }) {
   const setAndPersist = useCallback((nextTheme) => {
     setTheme(nextTheme);
     applyTheme(nextTheme);
-    window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    } catch {}
   }, []);
 
   const toggleTheme = useCallback(() => {

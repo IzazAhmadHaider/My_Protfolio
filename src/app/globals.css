@@ -5,10 +5,33 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50;
+  }
+
+  ::selection {
+    @apply bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900;
+  }
+
+  :focus-visible {
+    @apply rounded-md outline-none ring-2 ring-neutral-900 ring-offset-2 ring-offset-white dark:ring-neutral-100 dark:ring-offset-neutral-950;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
